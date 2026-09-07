@@ -61,6 +61,16 @@ export const destinations: Destination[] = [
     destinationType: 'local'
   },
   {
+    slug: 'carvoeiro',
+    name: 'Carvoeiro',
+    region: 'Algarve central',
+    summary: 'Calas, acantilados y el sendero de Sete Vales Suspensos, con atención especial a escaleras, playas de uso limitado y seguridad del perro.',
+    idealFor: ['senderismo costero', 'calas', 'paisaje'],
+    highlights: ['Sete Vales Suspensos', 'Marinha y Benagil', 'Accesibilidad real'],
+    guideStatus: 'verified',
+    destinationType: 'local'
+  },
+  {
     slug: 'geres',
     name: 'Gerês',
     region: 'Norte',
