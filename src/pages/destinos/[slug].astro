@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { destinations, type Destination } from '../../data/destinations';
+
+export function getStaticPaths() {
+  return destinations.map((destination) => ({ params: { slug: destination.slug }, props: { destination } }));
+}
+
+interface Props { destination: Destination }
+const { destination } = Astro.props;
+---
+<BaseLayout title={`${destination.name} con perro · Guía dog friendly`} description={`Guía para viajar a ${destination.name} con perro: alojamientos, rutas, playas y lugares dog friendly.`}>
+  <section class="destination-hero">
+    <div class="container">
+      <span class="eyebrow">{destination.region} · Guía con perro</span>
+      <h1 style="font-size:clamp(3rem,7vw,6rem)">{destination.name} con perro</h1>
+      <p style="max-width:720px;color:var(--muted);font-size:1.12rem;margin-top:20px">{destination.summary}</p>
+      <div class="score"><span>🐾 Dog Friendly Score</span><strong>{destination.score}/10</strong></div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container content-grid">
+      <div>
+        <span class="eyebrow">Qué tendrá esta guía</span>
+        <h2>Todo lo necesario para decidir si encaja con tu perro</h2>
+        <p style="color:var(--muted);margin-top:18px">Cada guía de destino combinará información editorial con datos estructurados. Antes de indexarla como contenido definitivo comprobaremos restricciones y fuentes.</p>
+        <div class="card-grid" style="margin-top:28px;grid-template-columns:repeat(2,minmax(0,1fr))">
+          <div class="card"><div class="card-body"><h3>🏡 Dónde dormir</h3><p>Casas y villas con filtros avanzados para perros.</p></div></div>
+          <div class="card"><div class="card-body"><h3>🏖️ Playas</h3><p>Acceso con perros, temporadas y restricciones.</p></div></div>
+          <div class="card"><div class="card-body"><h3>🚶 Rutas</h3><p>Paseos y excursiones compatibles con perros.</p></div></div>
+          <div class="card"><div class="card-body"><h3>🍴 Comer juntos</h3><p>Restaurantes y terrazas donde el perro puede acompañarte.</p></div></div>
+        </div>
+      </div>
+      <aside class="side-card">
+        <span class="eyebrow">Ideal para</span>
+        <div class="meta">{destination.idealFor.map((item) => <span class="pill">{item}</span>)}</div>
+        <h3 style="margin-top:24px">Puntos fuertes</h3>
+        <ul>{destination.highlights.map((item) => <li>{item}</li>)}</ul>
+        <a class="nav-cta" style="display:inline-block;margin-top:22px" href={`/alojamientos/?destino=${destination.slug}`}>Buscar alojamientos</a>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

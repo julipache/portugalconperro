@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { propertySeeds } from '../../data/properties';
+---
+<BaseLayout title="Alojamientos que admiten perros en Portugal · Portugal con Perro" description="Busca casas, villas y alojamientos dog friendly en Portugal con filtros pensados para viajar con perro.">
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div><span class="eyebrow">Buscador especializado</span><h1 style="font-size:clamp(2.5rem,5vw,4.5rem)">Alojamientos con perro</h1></div>
+        <p>Esta primera pantalla fija la experiencia de búsqueda. Después conectaremos el inventario real y los datos de partners.</p>
+      </div>
+      <div class="demo-note"><strong>Prototipo:</strong> los alojamientos que aparecen debajo son datos de demostración y no se publicarán como fichas reales.</div>
+      <div class="listing-layout">
+        <aside class="filters">
+          <span class="eyebrow">Filtros</span>
+          <div class="filter-group"><b>🐕 Número de perros</b><label><input type="checkbox" /> 1 perro</label><label><input type="checkbox" /> 2 perros</label><label><input type="checkbox" /> 3 o más</label></div>
+          <div class="filter-group"><b>🔒 Jardín</b><label><input type="checkbox" /> Jardín privado</label><label><input type="checkbox" /> Completamente vallado</label><label><input type="checkbox" /> Altura de valla conocida</label></div>
+          <div class="filter-group"><b>🏡 Alojamiento</b><label><input type="checkbox" /> Casa independiente</label><label><input type="checkbox" /> Villa</label><label><input type="checkbox" /> Piscina privada</label></div>
+          <div class="filter-group"><b>🐾 Condiciones</b><label><input type="checkbox" /> Perros grandes</label><label><input type="checkbox" /> Sin suplemento</label><label><input type="checkbox" /> Puede quedarse solo</label></div>
+        </aside>
+        <div class="card-grid" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+          {propertySeeds.map((property) => (
+            <article class="card">
+              <div class="card-media"><span class="pill">DEMO · {property.type}</span></div>
+              <div class="card-body">
+                <h3>{property.name}</h3>
+                <p>{property.location}</p>
+                <div class="meta">
+                  <span class="pill">🐕 {property.dogs}</span>
+                  {property.privateGarden && <span class="pill">🌳 Jardín privado</span>}
+                  {property.fencedGarden && <span class="pill">🔒 Vallado</span>}
+                  {property.pool && <span class="pill">🏊 Piscina</span>}
+                </div>
+                <span class="card-link">La ficha real incluirá fuente y verificación →</span>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

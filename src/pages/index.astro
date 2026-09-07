@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { destinations } from '../data/destinations';
+---
+<BaseLayout>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">Portugal, pero pensado para ellos</span>
+        <h1>Viajar con perro sin jugar a las adivinanzas.</h1>
+        <p>Encuentra alojamientos y destinos con la información que de verdad importa: <strong>jardín vallado</strong>, número de perros, tamaño, suplementos, piscina y qué hacer juntos cerca.</p>
+        <div class="hero-badges">
+          <span class="badge">🔒 Jardín vallado</span>
+          <span class="badge">🐕 Perros grandes</span>
+          <span class="badge">🐕🐕 2+ perros</span>
+          <span class="badge">🏖️ Playas y rutas</span>
+        </div>
+        <form class="search-box" action="/alojamientos/" method="get">
+          <div class="field">
+            <label for="destino">Destino</label>
+            <input id="destino" name="destino" placeholder="Algarve, Nazaré, Gerês…" />
+          </div>
+          <div class="field">
+            <label for="perros">Perros</label>
+            <select id="perros" name="perros"><option value="1">1 perro</option><option value="2">2 perros</option><option value="3">3 o más</option></select>
+          </div>
+          <div class="field">
+            <label for="jardin">Exterior</label>
+            <select id="jardin" name="jardin"><option value="">Cualquiera</option><option value="vallado">Jardín vallado</option><option value="privado">Jardín privado</option></select>
+          </div>
+          <button class="search-button" type="submit">Buscar</button>
+        </form>
+      </div>
+      <div class="hero-art" aria-label="Ilustración de viaje con perro">
+        <div class="art-card one"><b>Dog Friendly Score · 9,2</b><span>Más que un simple “admite mascotas”</span></div>
+        <div class="art-card two"><b>🔒 Jardín completamente cerrado</b><span>Mostraremos también la evidencia y el nivel de confianza.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="destinos">
+    <div class="container">
+      <div class="section-head">
+        <div><span class="eyebrow">Empieza por el lugar</span><h2>Destinos para disfrutar juntos</h2></div>
+        <p>La idea no es ser otro comparador de hoteles: cada destino combinará dónde dormir, playas, rutas, restaurantes y restricciones útiles.</p>
+      </div>
+      <div class="card-grid">
+        {destinations.map((destination) => (
+          <a class="card" href={`/destinos/${destination.slug}/`}>
+            <div class="card-media"><span class="pill">⭐ {destination.score}/10 con perro</span></div>
+            <div class="card-body">
+              <h3>{destination.name}</h3>
+              <p>{destination.summary}</p>
+              <div class="meta">{destination.idealFor.slice(0, 3).map((tag) => <span class="pill">{tag}</span>)}</div>
+              <span class="card-link">Ver guía →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="como-funciona">
+    <div class="container trust">
+      <div class="trust-item"><span>🔎</span><h3>Dato con fuente</h3><p>No marcaremos un jardín como vallado solo porque una foto lo parezca. Guardaremos la fuente y el texto que lo confirma.</p></div>
+      <div class="trust-item"><span>✅</span><h3>Nivel de verificación</h3><p>Diferenciaremos entre información del proveedor, información confirmada explícitamente y datos verificados por el propietario.</p></div>
+      <div class="trust-item"><span>🐾</span><h3>Filtros de verdad útiles</h3><p>Número de perros, tamaño, jardín privado, jardín cerrado, suplemento, piscina y posibilidad de dejar al perro solo.</p></div>
+    </div>
+  </section>
+</BaseLayout>
