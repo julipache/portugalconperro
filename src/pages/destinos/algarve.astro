@@ -3,6 +3,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { regionHubs } from '../../data/regionHubs';
 
 const hub = regionHubs.algarve;
+const westernGuides = [
+  { name: 'Lagos', href: '/destinos/lagos/', text: 'Ponta da Piedade, Rota Vicentina, playas y alternativa forestal.' },
+  { name: 'Sagres', href: '/destinos/sagres/', text: 'Cabo de São Vicente, acantilados, senderismo y reglas de playa.' },
+  { name: 'Aljezur', href: '/destinos/aljezur/', text: 'Arrifana, Odeceixe, Monte Clérigo y etapas de Rota Vicentina.' }
+];
 ---
 <BaseLayout
   title="Algarve con perro · Qué zona elegir y dónde alojarse"
@@ -45,7 +50,11 @@ const hub = regionHubs.algarve;
                   </div>
                   <p style="margin-top:12px"><strong>Mirada con perro:</strong> {area.dogLens}</p>
                   {area.name === 'Algarve occidental' && (
-                    <a class="nav-cta" style="display:inline-block;margin-top:18px" href="/destinos/lagos/">Ver guía verificada de Lagos →</a>
+                    <div class="meta" style="margin-top:20px">
+                      {westernGuides.map((guide) => (
+                        <a class="nav-cta" href={guide.href}>Guía de {guide.name} →</a>
+                      ))}
+                    </div>
                   )}
                 </div>
               </article>
@@ -88,16 +97,22 @@ const hub = regionHubs.algarve;
       <aside>
         <div class="side-card">
           <span class="eyebrow">Alojamientos</span>
-          <h3 style="margin-top:8px">Aquí estará el dinero… si resolvemos bien la decisión</h3>
+          <h3 style="margin-top:8px">El siguiente paso será filtrar casas que encajen de verdad</h3>
           <p style="color:var(--muted);margin-top:12px">Cuando llegue Interhome, este hub no mostrará un carrusel genérico. Permitirá comparar inventario real del Algarve por mascotas, vallado, tipo de casa, piscina y otros atributos que el proveedor confirme.</p>
           <a class="nav-cta" style="display:inline-block;margin-top:18px" href="/alojamientos/?destino=algarve">Buscar alojamientos en Algarve</a>
         </div>
 
         <div class="side-card" style="margin-top:20px;background:white;border:1px solid var(--line)">
-          <span class="eyebrow">Ya publicada</span>
-          <h3 style="margin-top:8px">Lagos con perro</h3>
-          <p style="color:var(--muted);margin-top:12px">Primera guía local del Algarve: temporada balnear 2026, playas, Rota Vicentina, Ponta da Piedade y una ruta interior con ficha técnica oficial.</p>
-          <a class="card-link" style="display:inline-block;margin-top:14px" href="/destinos/lagos/">Abrir guía de Lagos →</a>
+          <span class="eyebrow">Guías verificadas del oeste</span>
+          <h3 style="margin-top:8px">Ya puedes comparar tres bases</h3>
+          <div style="display:grid;gap:14px;margin-top:14px">
+            {westernGuides.map((guide) => (
+              <div>
+                <a class="card-link" href={guide.href}>{guide.name} con perro →</a>
+                <p style="color:var(--muted);font-size:.9rem;margin-top:3px">{guide.text}</p>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div class="side-card" style="margin-top:20px;background:white;border:1px solid var(--line)">
