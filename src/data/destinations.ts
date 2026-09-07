@@ -2,10 +2,10 @@ export interface Destination {
   slug: string;
   name: string;
   region: string;
-  score: number;
   summary: string;
   idealFor: string[];
   highlights: string[];
+  guideStatus?: 'researching' | 'verified';
 }
 
 export const destinations: Destination[] = [
@@ -13,54 +13,54 @@ export const destinations: Destination[] = [
     slug: 'algarve',
     name: 'Algarve',
     region: 'Sur de Portugal',
-    score: 9.1,
-    summary: 'Calas, rutas costeras y una gran oferta de villas: una de las zonas con más potencial para viajar con perro.',
-    idealFor: ['playa', 'casas con jardín', 'escapadas largas'],
-    highlights: ['Costa extensa', 'Muchas villas', 'Buen clima fuera de temporada']
+    summary: 'Costa, pueblos y una gran variedad de alojamientos vacacionales: será uno de los grandes hubs de la guía.',
+    idealFor: ['costa', 'escapadas largas', 'alojamientos'],
+    highlights: ['Costa extensa', 'Muchos destinos', 'Contenido en preparación'],
+    guideStatus: 'researching'
   },
   {
     slug: 'geres',
     name: 'Gerês',
     region: 'Norte',
-    score: 9.4,
-    summary: 'Naturaleza, senderos y alojamientos rurales para quienes priorizan paseos y espacio exterior.',
-    idealFor: ['senderismo', 'naturaleza', 'casas rurales'],
-    highlights: ['Parque nacional', 'Rutas', 'Entorno rural']
+    summary: 'Naturaleza y senderos en uno de los destinos interiores prioritarios de Portugal con Perro.',
+    idealFor: ['senderismo', 'naturaleza', 'escapada rural'],
+    highlights: ['Parque nacional', 'Rutas', 'Contenido en preparación'],
+    guideStatus: 'researching'
   },
   {
     slug: 'nazare',
     name: 'Nazaré',
     region: 'Centro',
-    score: 8.6,
-    summary: 'Una base cómoda para combinar costa, paseos y excursiones por la región centro.',
+    summary: 'Costa, miradores y paseos concentrados en un destino compacto de la región centro.',
     idealFor: ['costa', 'fin de semana', 'paseos'],
-    highlights: ['Paseo marítimo', 'Costa', 'Buena base para explorar']
+    highlights: ['Sítio', 'Miradores', 'Costa'],
+    guideStatus: 'verified'
   },
   {
     slug: 'cascais',
     name: 'Cascais',
     region: 'Lisboa',
-    score: 8.7,
-    summary: 'Mar, parques y restauración con terrazas a un paso de Lisboa y Sintra.',
-    idealFor: ['restaurantes', 'costa', 'escapada urbana'],
-    highlights: ['Cerca de Lisboa', 'Paseos costeros', 'Terrazas']
+    summary: 'Destino costero junto a Lisboa que combinaremos con paseos, espacios exteriores y excursiones cercanas.',
+    idealFor: ['costa', 'paseos', 'escapada urbana'],
+    highlights: ['Cerca de Lisboa', 'Costa', 'Contenido en preparación'],
+    guideStatus: 'researching'
   },
   {
     slug: 'sintra',
     name: 'Sintra',
     region: 'Lisboa',
-    score: 8.8,
-    summary: 'Bosques, paisaje y alojamientos con terreno para una escapada verde cerca de la capital.',
-    idealFor: ['bosque', 'rutas', 'casas con terreno'],
-    highlights: ['Paisaje', 'Rutas', 'Cerca de Cascais']
+    summary: 'Paisaje, patrimonio y naturaleza cerca de Lisboa y Cascais.',
+    idealFor: ['naturaleza', 'rutas', 'cultura'],
+    highlights: ['Paisaje', 'Excursiones', 'Contenido en preparación'],
+    guideStatus: 'researching'
   },
   {
     slug: 'comporta',
     name: 'Comporta',
     region: 'Alentejo',
-    score: 8.9,
-    summary: 'Casas independientes, pinares y costa para buscar tranquilidad y espacio exterior.',
-    idealFor: ['tranquilidad', 'playa', 'casas independientes'],
-    highlights: ['Pinares', 'Costa', 'Alojamientos independientes']
+    summary: 'Costa y entorno rural del Alentejo litoral, pendiente de investigación específica para la guía.',
+    idealFor: ['tranquilidad', 'costa', 'escapadas'],
+    highlights: ['Costa', 'Entorno rural', 'Contenido en preparación'],
+    guideStatus: 'researching'
   }
 ];
