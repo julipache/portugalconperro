@@ -6,6 +6,7 @@ export interface Destination {
   idealFor: string[];
   highlights: string[];
   guideStatus?: 'researching' | 'verified';
+  destinationType?: 'region' | 'local';
 }
 
 export const destinations: Destination[] = [
@@ -13,10 +14,21 @@ export const destinations: Destination[] = [
     slug: 'algarve',
     name: 'Algarve',
     region: 'Sur de Portugal',
-    summary: 'Costa, pueblos y una gran variedad de alojamientos vacacionales: será uno de los grandes hubs de la guía.',
-    idealFor: ['costa', 'escapadas largas', 'alojamientos'],
-    highlights: ['Costa extensa', 'Muchos destinos', 'Contenido en preparación'],
-    guideStatus: 'researching'
+    summary: 'Hub regional para elegir zona antes de reservar: costa occidental, Algarve central y sotavento tienen paisajes, rutas y reglas de playa muy diferentes.',
+    idealFor: ['costa', 'escapadas largas', 'elegir zona'],
+    highlights: ['Hub regional', 'Rutas y costa', 'Preparado para inventario'],
+    guideStatus: 'verified',
+    destinationType: 'region'
+  },
+  {
+    slug: 'lagos',
+    name: 'Lagos',
+    region: 'Algarve occidental',
+    summary: 'Acantilados, pasarelas, playas y rutas con información útil para viajar con perro: temporada balnear 2026, Rota Vicentina y alternativa forestal.',
+    idealFor: ['costa', 'senderismo', 'escapada larga'],
+    highlights: ['Rota Vicentina', 'Ponta da Piedade', 'Reglas de playa 2026'],
+    guideStatus: 'verified',
+    destinationType: 'local'
   },
   {
     slug: 'geres',
@@ -25,7 +37,8 @@ export const destinations: Destination[] = [
     summary: 'Parque nacional, bosques, cascadas y senderos oficiales con avisos prácticos sobre incendios, ganado, perros pastores y estado de las rutas.',
     idealFor: ['senderismo', 'naturaleza', 'escapada rural'],
     highlights: ['Rutas oficiales', 'Avisos actualizados', 'Naturaleza y cascadas'],
-    guideStatus: 'verified'
+    guideStatus: 'verified',
+    destinationType: 'local'
   },
   {
     slug: 'nazare',
@@ -34,7 +47,8 @@ export const destinations: Destination[] = [
     summary: 'Costa, miradores y paseos concentrados en un destino compacto de la región centro.',
     idealFor: ['costa', 'fin de semana', 'paseos'],
     highlights: ['Sítio', 'Miradores', 'Costa'],
-    guideStatus: 'verified'
+    guideStatus: 'verified',
+    destinationType: 'local'
   },
   {
     slug: 'cascais',
@@ -43,7 +57,8 @@ export const destinations: Destination[] = [
     summary: 'Costa urbana, parques y senderos con varias normas útiles para viajar con perro ya confirmadas por fuentes municipales.',
     idealFor: ['costa', 'paseos', 'escapada urbana'],
     highlights: ['Parques con normativa', 'Paseos costeros', 'Playas con regla estacional clara'],
-    guideStatus: 'verified'
+    guideStatus: 'verified',
+    destinationType: 'local'
   },
   {
     slug: 'sintra',
@@ -52,7 +67,8 @@ export const destinations: Destination[] = [
     summary: 'Paisaje, patrimonio y naturaleza cerca de Lisboa y Cascais.',
     idealFor: ['naturaleza', 'rutas', 'cultura'],
     highlights: ['Paisaje', 'Excursiones', 'Contenido en preparación'],
-    guideStatus: 'researching'
+    guideStatus: 'researching',
+    destinationType: 'local'
   },
   {
     slug: 'comporta',
@@ -61,6 +77,7 @@ export const destinations: Destination[] = [
     summary: 'Costa y entorno rural del Alentejo litoral, pendiente de investigación específica para la guía.',
     idealFor: ['tranquilidad', 'costa', 'escapadas'],
     highlights: ['Costa', 'Entorno rural', 'Contenido en preparación'],
-    guideStatus: 'researching'
+    guideStatus: 'researching',
+    destinationType: 'local'
   }
 ];
