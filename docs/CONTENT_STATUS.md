@@ -12,7 +12,20 @@
 - ✅ **Algarve** — hub regional para elegir oeste / centro / este antes de buscar alojamiento.
 - ✅ **Lagos** — temporada balnear 2026, Rota Vicentina con política explícita para perros, Ponta da Piedade y PR1 Pedra do Galo.
 - ✅ **Sagres** — Cabo de São Vicente, Fortaleza, Rota Vicentina, temporada balnear, acantilados y reglas específicas para caminar con perro.
+- ✅ **Aljezur** — castillo, Arrifana, Monte Clérigo, Amoreira, Odeceixe y rutas de Rota Vicentina con reglas y distancias verificadas.
 - ✅ **Sintra** — Castelo dos Mouros y Monserrate con acceso canino confirmado y reglas detalladas; Pena y otros monumentos diferenciados como no aptos para mascotas según Parques de Sintra.
+
+## Cluster Algarve occidental
+
+Estado: **primera versión editorial completada**.
+
+Ya hay tres bases locales verificadas y conectadas desde el hub regional:
+
+1. **Lagos** — costa, rutas y alternativa forestal.
+2. **Sagres** — senderismo, acantilados y Cabo de São Vicente.
+3. **Aljezur** — Costa Vicentina, playas y etapas de Rota Vicentina.
+
+Vila do Bispo queda cubierto parcialmente como territorio de paso y fuente de rutas de Sagres. Antes de abrir otra URL específica, esperaremos a comprobar si aporta suficiente contenido e inventario para no crear páginas redundantes.
 
 ## Qué estamos aprendiendo
 
@@ -55,11 +68,11 @@ No crearemos páginas SEO vacías ni texto de relleno. Cuando llegue Interhome, 
 
 ## Siguiente bloque de contenido
 
-1. **Aljezur** — cerrar el primer cluster del Algarve occidental con playas, Rota Vicentina y pueblos/base de naturaleza.
-2. **Portimão / Carvoeiro** — empezar Algarve central.
-3. **Tavira** — primera guía del Algarve oriental.
-4. **Comporta / Setúbal** — abrir el siguiente cluster con alta intención de escapada y casas.
-5. Volver a **Costa Centro y Costa Norte** para ampliar cobertura sin concentrar toda la web en Algarve.
+1. **Portimão / Carvoeiro** — abrir Algarve central y comparar una base urbana con una costa más recortada.
+2. **Tavira** — primera guía del Algarve oriental y primer caso fuerte de Ria Formosa/islas.
+3. **Comporta / Setúbal** — abrir el siguiente cluster con alta intención de escapada y casas.
+4. Volver a **Costa Centro y Costa Norte** para ampliar cobertura sin concentrar toda la web en Algarve.
+5. Con inventario de Interhome, decidir qué destinos merecen landings transaccionales específicas.
 
 ## Criterio de éxito editorial
 
