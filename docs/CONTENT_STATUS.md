@@ -11,6 +11,7 @@
 - ✅ **Gerês** — parque nacional, rutas oficiales, riesgo de incendio, cierres, ganado y perros pastores.
 - ✅ **Algarve** — hub regional para elegir oeste / centro / este antes de buscar alojamiento.
 - ✅ **Lagos** — temporada balnear 2026, Rota Vicentina con política explícita para perros, Ponta da Piedade y PR1 Pedra do Galo.
+- ✅ **Sagres** — Cabo de São Vicente, Fortaleza, Rota Vicentina, temporada balnear, acantilados y reglas específicas para caminar con perro.
 - ✅ **Sintra** — Castelo dos Mouros y Monserrate con acceso canino confirmado y reglas detalladas; Pena y otros monumentos diferenciados como no aptos para mascotas según Parques de Sintra.
 
 ## Qué estamos aprendiendo
@@ -54,10 +55,10 @@ No crearemos páginas SEO vacías ni texto de relleno. Cuando llegue Interhome, 
 
 ## Siguiente bloque de contenido
 
-1. **Sagres / Vila do Bispo** — continuar Algarve occidental y aprovechar el cluster con Lagos y Rota Vicentina.
-2. **Aljezur** — cerrar el primer cluster del oeste.
-3. **Portimão / Carvoeiro** — empezar Algarve central.
-4. **Tavira** — primera guía del Algarve oriental.
+1. **Aljezur** — cerrar el primer cluster del Algarve occidental con playas, Rota Vicentina y pueblos/base de naturaleza.
+2. **Portimão / Carvoeiro** — empezar Algarve central.
+3. **Tavira** — primera guía del Algarve oriental.
+4. **Comporta / Setúbal** — abrir el siguiente cluster con alta intención de escapada y casas.
 5. Volver a **Costa Centro y Costa Norte** para ampliar cobertura sin concentrar toda la web en Algarve.
 
 ## Criterio de éxito editorial
