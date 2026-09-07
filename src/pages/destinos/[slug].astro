@@ -2,14 +2,17 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { destinations, type Destination } from '../../data/destinations';
 import { destinationGuides } from '../../data/destinationGuides';
+import { lagosGuide } from '../../data/lagosGuide';
 
 export function getStaticPaths() {
-  return destinations.map((destination) => ({ params: { slug: destination.slug }, props: { destination } }));
+  return destinations
+    .filter((destination) => destination.destinationType !== 'region')
+    .map((destination) => ({ params: { slug: destination.slug }, props: { destination } }));
 }
 
 interface Props { destination: Destination }
 const { destination } = Astro.props;
-const guide = destinationGuides[destination.slug];
+const guide = destination.slug === 'lagos' ? lagosGuide : destinationGuides[destination.slug];
 
 const accessLabels = {
   allowed: '✅ Acceso con perro confirmado',
