@@ -31,6 +31,16 @@ export const destinations: Destination[] = [
     destinationType: 'local'
   },
   {
+    slug: 'sagres',
+    name: 'Sagres',
+    region: 'Algarve occidental',
+    summary: 'Cabo de São Vicente, Rota Vicentina, acantilados y playas con reglas concretas para planificar un viaje con perro sin depender solo del arenal.',
+    idealFor: ['senderismo', 'costa salvaje', 'naturaleza'],
+    highlights: ['Rota Vicentina con perro', 'Cabo de São Vicente', 'Temporada balnear 2026'],
+    guideStatus: 'verified',
+    destinationType: 'local'
+  },
+  {
     slug: 'geres',
     name: 'Gerês',
     region: 'Norte',
