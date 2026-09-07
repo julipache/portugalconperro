@@ -14,6 +14,7 @@
 - ✅ **Sagres** — Cabo de São Vicente, Fortaleza, Rota Vicentina, temporada balnear, acantilados y reglas específicas para caminar con perro.
 - ✅ **Aljezur** — castillo, Arrifana, Monte Clérigo, Amoreira, Odeceixe y rutas de Rota Vicentina con reglas y distancias verificadas.
 - ✅ **Portimão** — Praia da Rocha, Alvor, Ria de Alvor, temporada balnear y red municipal de recorridos naturales.
+- ✅ **Carvoeiro / Lagoa** — Sete Vales Suspensos, Marinha, Benagil, Vale Centeanes y datos prácticos de escaleras, acantilados y playas de uso limitado.
 - ✅ **Sintra** — Castelo dos Mouros y Monserrate con acceso canino confirmado y reglas detalladas; Pena y otros monumentos diferenciados como no aptos para mascotas según Parques de Sintra.
 
 ## Cluster Algarve occidental
@@ -30,12 +31,17 @@ Vila do Bispo queda cubierto parcialmente como territorio de paso y fuente de ru
 
 ## Cluster Algarve central
 
-Estado: **en construcción**.
+Estado: **primera versión editorial iniciada con dos bases complementarias**.
 
-- ✅ **Portimão** — primera base del cluster, con una mezcla distinta al oeste: ciudad, playas de baños y Ria de Alvor.
-- ⬜ **Carvoeiro / Lagoa** — siguiente guía; será importante por acantilados, senderos costeros y playas como Marinha y Vale Centeanes.
-- ⬜ **Albufeira** — pendiente.
-- ⬜ **Vilamoura / Quarteira** — pendiente.
+1. **Portimão** — ciudad, Praia da Rocha, Alvor y recorridos naturales de la ría.
+2. **Carvoeiro / Lagoa** — calas, acantilados, Sete Vales Suspensos y accesibilidad física de playas.
+
+Pendientes de este cluster:
+
+- ⬜ **Albufeira**
+- ⬜ **Vilamoura / Quarteira**
+
+Antes de abrir esas páginas comprobaremos si aportan información canina y práctica distinta y, cuando llegue Interhome, si tienen inventario suficiente para justificar una landing propia.
 
 ## Qué estamos aprendiendo
 
@@ -48,6 +54,7 @@ El contenido que más valor aporta no es una lista de “sitios bonitos”, sino
 - disponibilidad de agua;
 - riesgo de incendio o cierres temporales;
 - ganado y perros pastores;
+- escaleras, acantilados y accesibilidad física real;
 - acceso en coche / transporte;
 - diferencias entre zonas antes de reservar alojamiento.
 
@@ -78,8 +85,8 @@ No crearemos páginas SEO vacías ni texto de relleno. Cuando llegue Interhome, 
 
 ## Siguiente bloque de contenido
 
-1. **Carvoeiro / Lagoa** — completar la segunda base del Algarve central.
-2. **Tavira** — primera guía del Algarve oriental y primer caso fuerte de Ria Formosa/islas.
+1. **Tavira** — primera guía del Algarve oriental y primer caso fuerte de Ria Formosa/islas.
+2. **Faro / Olhão** — decidir si conviene una guía por ciudad o un subcluster de Ria Formosa.
 3. **Comporta / Setúbal** — abrir el siguiente cluster con alta intención de escapada y casas.
 4. Volver a **Costa Centro y Costa Norte** para ampliar cobertura sin concentrar toda la web en Algarve.
 5. Con inventario de Interhome, decidir qué destinos merecen landings transaccionales específicas.
