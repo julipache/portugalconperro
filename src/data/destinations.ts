@@ -40,10 +40,10 @@ export const destinations: Destination[] = [
     slug: 'cascais',
     name: 'Cascais',
     region: 'Lisboa',
-    summary: 'Destino costero junto a Lisboa que combinaremos con paseos, espacios exteriores y excursiones cercanas.',
+    summary: 'Costa urbana, parques y senderos con varias normas útiles para viajar con perro ya confirmadas por fuentes municipales.',
     idealFor: ['costa', 'paseos', 'escapada urbana'],
-    highlights: ['Cerca de Lisboa', 'Costa', 'Contenido en preparación'],
-    guideStatus: 'researching'
+    highlights: ['Parques con normativa', 'Paseos costeros', 'Playas con regla estacional clara'],
+    guideStatus: 'verified'
   },
   {
     slug: 'sintra',
