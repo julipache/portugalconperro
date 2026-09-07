@@ -22,10 +22,10 @@ export const destinations: Destination[] = [
     slug: 'geres',
     name: 'Gerês',
     region: 'Norte',
-    summary: 'Naturaleza y senderos en uno de los destinos interiores prioritarios de Portugal con Perro.',
+    summary: 'Parque nacional, bosques, cascadas y senderos oficiales con avisos prácticos sobre incendios, ganado, perros pastores y estado de las rutas.',
     idealFor: ['senderismo', 'naturaleza', 'escapada rural'],
-    highlights: ['Parque nacional', 'Rutas', 'Contenido en preparación'],
-    guideStatus: 'researching'
+    highlights: ['Rutas oficiales', 'Avisos actualizados', 'Naturaleza y cascadas'],
+    guideStatus: 'verified'
   },
   {
     slug: 'nazare',
