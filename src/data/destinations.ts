@@ -41,6 +41,16 @@ export const destinations: Destination[] = [
     destinationType: 'local'
   },
   {
+    slug: 'aljezur',
+    name: 'Aljezur',
+    region: 'Algarve occidental',
+    summary: 'Castillo, Costa Vicentina, playas y etapas de la Rota Vicentina con reglas claras para combinar senderismo y costa viajando con perro.',
+    idealFor: ['senderismo', 'playas', 'naturaleza'],
+    highlights: ['Rota Vicentina con perro', 'Arrifana y Odeceixe', 'Temporada balnear 2026'],
+    guideStatus: 'verified',
+    destinationType: 'local'
+  },
+  {
     slug: 'geres',
     name: 'Gerês',
     region: 'Norte',
