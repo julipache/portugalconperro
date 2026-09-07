@@ -64,10 +64,10 @@ export const destinations: Destination[] = [
     slug: 'sintra',
     name: 'Sintra',
     region: 'Lisboa',
-    summary: 'Paisaje, patrimonio y naturaleza cerca de Lisboa y Cascais.',
-    idealFor: ['naturaleza', 'rutas', 'cultura'],
-    highlights: ['Paisaje', 'Excursiones', 'Contenido en preparación'],
-    guideStatus: 'researching',
+    summary: 'Patrimonio y naturaleza con una diferencia clave para viajar con perro: Castelo dos Mouros y Monserrate lo admiten con reglas explícitas; otros grandes monumentos no.',
+    idealFor: ['patrimonio', 'paseos', 'naturaleza'],
+    highlights: ['Castelo dos Mouros con perro', 'Monserrate con perro', 'Reglas oficiales claras'],
+    guideStatus: 'verified',
     destinationType: 'local'
   },
   {
