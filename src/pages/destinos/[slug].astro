@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { destinations, type Destination } from '../../data/destinations';
 import { destinationGuides } from '../../data/destinationGuides';
+import { aljezurGuide } from '../../data/aljezurGuide';
 import { lagosGuide } from '../../data/lagosGuide';
 import { sagresGuide } from '../../data/sagresGuide';
 import { sintraGuide } from '../../data/sintraGuide';
@@ -14,7 +15,7 @@ export function getStaticPaths() {
 
 interface Props { destination: Destination }
 const { destination } = Astro.props;
-const specialGuides = { lagos: lagosGuide, sagres: sagresGuide, sintra: sintraGuide };
+const specialGuides = { aljezur: aljezurGuide, lagos: lagosGuide, sagres: sagresGuide, sintra: sintraGuide };
 const guide = specialGuides[destination.slug as keyof typeof specialGuides] ?? destinationGuides[destination.slug];
 
 const accessLabels = {
