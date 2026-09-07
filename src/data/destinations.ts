@@ -51,6 +51,16 @@ export const destinations: Destination[] = [
     destinationType: 'local'
   },
   {
+    slug: 'portimao',
+    name: 'Portimão',
+    region: 'Algarve central',
+    summary: 'Base urbana con Praia da Rocha, Alvor y una red municipal de recorridos naturales alrededor de la ría, las dunas y los acantilados.',
+    idealFor: ['costa', 'paseos', 'base urbana'],
+    highlights: ['Ria de Alvor', 'Recorridos naturales', 'Reglas de playa 2026'],
+    guideStatus: 'verified',
+    destinationType: 'local'
+  },
+  {
     slug: 'geres',
     name: 'Gerês',
     region: 'Norte',
