@@ -13,6 +13,7 @@
 - ✅ **Lagos** — temporada balnear 2026, Rota Vicentina con política explícita para perros, Ponta da Piedade y PR1 Pedra do Galo.
 - ✅ **Sagres** — Cabo de São Vicente, Fortaleza, Rota Vicentina, temporada balnear, acantilados y reglas específicas para caminar con perro.
 - ✅ **Aljezur** — castillo, Arrifana, Monte Clérigo, Amoreira, Odeceixe y rutas de Rota Vicentina con reglas y distancias verificadas.
+- ✅ **Portimão** — Praia da Rocha, Alvor, Ria de Alvor, temporada balnear y red municipal de recorridos naturales.
 - ✅ **Sintra** — Castelo dos Mouros y Monserrate con acceso canino confirmado y reglas detalladas; Pena y otros monumentos diferenciados como no aptos para mascotas según Parques de Sintra.
 
 ## Cluster Algarve occidental
@@ -26,6 +27,15 @@ Ya hay tres bases locales verificadas y conectadas desde el hub regional:
 3. **Aljezur** — Costa Vicentina, playas y etapas de Rota Vicentina.
 
 Vila do Bispo queda cubierto parcialmente como territorio de paso y fuente de rutas de Sagres. Antes de abrir otra URL específica, esperaremos a comprobar si aporta suficiente contenido e inventario para no crear páginas redundantes.
+
+## Cluster Algarve central
+
+Estado: **en construcción**.
+
+- ✅ **Portimão** — primera base del cluster, con una mezcla distinta al oeste: ciudad, playas de baños y Ria de Alvor.
+- ⬜ **Carvoeiro / Lagoa** — siguiente guía; será importante por acantilados, senderos costeros y playas como Marinha y Vale Centeanes.
+- ⬜ **Albufeira** — pendiente.
+- ⬜ **Vilamoura / Quarteira** — pendiente.
 
 ## Qué estamos aprendiendo
 
@@ -68,7 +78,7 @@ No crearemos páginas SEO vacías ni texto de relleno. Cuando llegue Interhome, 
 
 ## Siguiente bloque de contenido
 
-1. **Portimão / Carvoeiro** — abrir Algarve central y comparar una base urbana con una costa más recortada.
+1. **Carvoeiro / Lagoa** — completar la segunda base del Algarve central.
 2. **Tavira** — primera guía del Algarve oriental y primer caso fuerte de Ria Formosa/islas.
 3. **Comporta / Setúbal** — abrir el siguiente cluster con alta intención de escapada y casas.
 4. Volver a **Costa Centro y Costa Norte** para ampliar cobertura sin concentrar toda la web en Algarve.
