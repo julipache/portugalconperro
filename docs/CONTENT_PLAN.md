@@ -2,6 +2,15 @@
 
 > Documento vivo para avanzar en contenido mientras esperamos la integración de alojamientos. La prioridad es construir guías útiles y SEO-first basadas en lugares reales y fuentes fiables, sin inventar condiciones dog-friendly.
 
+## Estado actual
+
+- ✅ Nazaré — primera guía editorial verificada.
+- ✅ Cascais — guía costera/urbana verificada.
+- ✅ Gerês — primera guía de naturaleza/interior verificada, con avisos de rutas, incendios, ganado y perros pastores.
+- ⬜ Algarve — siguiente gran hub regional.
+- ⬜ Lagos — siguiente guía local del Algarve.
+- ⬜ Sintra — pendiente tras validar el hub de Algarve.
+
 ## 1. Estrategia
 
 Empezaremos por la **costa de norte a sur**, porque concentra gran parte del turismo, búsquedas con intención de viaje y futuras combinaciones con alojamientos. En paralelo mantendremos **Gerês** como gran excepción interior por su encaje natural con viajes con perro.
@@ -52,11 +61,13 @@ Cada página `/destinos/{slug}/` seguirá una plantilla común.
    - el acceso con perro solo se afirmará cuando exista una fuente fiable y actual;
    - distinguir temporada de baño / fuera de temporada cuando proceda.
 
-5. **Consejos prácticos**
+5. **Consejos prácticos y avisos**
    - calor/sombra;
    - zonas concurridas;
    - aparcamiento o accesibilidad cuando tenga especial relevancia;
-   - precauciones naturales específicas del entorno.
+   - precauciones naturales específicas del entorno;
+   - cierres temporales y avisos que puedan cambiar el plan;
+   - riesgo de incendio, ganado u otras condiciones relevantes en destinos de naturaleza.
 
 6. **Alojamientos**
    - inicialmente bloque preparado pero sin inventario;
@@ -85,6 +96,8 @@ Estados recomendados para accesos:
 - `unknown`: no tenemos confirmación suficiente.
 
 `unknown` es preferible a adivinar.
+
+Los datos temporales —cierres, riesgo de incendio, obras, temporadas— deben incluir fecha de revisión y enlace para comprobar el estado actual.
 
 ---
 
@@ -118,29 +131,27 @@ Destinos base:
 
 ### Cluster 3 — Costa Centro
 
-Estado: ⬜ pendiente
+Estado: 🟨 iniciado
 
 Destinos base:
 
 - Figueira da Foz
 - São Pedro de Moel
-- Nazaré
+- **Nazaré ✅**
 - São Martinho do Porto
 - Peniche
 - Baleal
 - Óbidos
 
-Nazaré será uno de los primeros destinos prioritarios porque ya forma parte de la V1 visual del sitio.
-
 ### Cluster 4 — Lisboa, Sintra y Cascais
 
-Estado: ⬜ pendiente
+Estado: 🟨 iniciado
 
 Destinos base:
 
 - Ericeira
 - Sintra
-- Cascais
+- **Cascais ✅**
 - Lisboa
 - Costa da Caparica
 
@@ -204,11 +215,11 @@ Destinos base:
 
 ### Cluster 10 — Interior prioritario
 
-Estado: ⬜ pendiente
+Estado: 🟨 iniciado
 
 Primero:
 
-- Gerês
+- **Gerês ✅**
 
 Después, solo si vemos demanda o buen inventario de alojamientos:
 
@@ -220,17 +231,20 @@ Después, solo si vemos demanda o buen inventario de alojamientos:
 
 ## 5. Orden de trabajo recomendado
 
-No seguir literalmente cada kilómetro de costa. El orden inicial será:
+Validación inicial de plantillas:
 
-1. **Nazaré** — crear la plantilla definitiva de guía.
-2. **Cascais** — probar destino costero + urbano.
-3. **Gerês** — probar destino de naturaleza/interior.
-4. **Algarve (hub regional)** — página agregadora.
-5. **Lagos** — primer destino Algarve.
+1. **Nazaré ✅** — costa y paseo.
+2. **Cascais ✅** — costa + urbano + normativa municipal.
+3. **Gerês ✅** — naturaleza + rutas + avisos temporales.
+
+Siguiente bloque:
+
+4. **Algarve (hub regional)** — página agregadora que prepare la arquitectura para muchas localidades y el futuro inventario de Interhome.
+5. **Lagos** — primer destino Algarve con contenido local real.
 6. **Sintra** — destino mixto de naturaleza/cultura.
 7. A partir de ahí, completar norte → sur por clusters.
 
-Motivo: estos seis destinos ya aparecen o encajan con la estructura actual y nos permiten validar distintos tipos de página antes de producir decenas.
+Las tres primeras guías ya permiten validar tres tipos de contenido distintos antes de producir decenas de páginas.
 
 ---
 
@@ -273,8 +287,22 @@ Categorías iniciales:
 - beach
 - walk
 - natural_area
+- waterfall
 - town
 - attraction
+
+### `destination_alerts`
+
+Para información temporal o especialmente práctica:
+
+- destination_id
+- title
+- summary
+- source_url
+- checked_at
+- expires_at / review_after cuando sea posible
+
+Ejemplos: cierre temporal de sendero, riesgo de incendio, restricciones estacionales o cambios de acceso.
 
 No hace falta crear estas tablas hasta que tengamos claro el primer contenido real; este modelo sirve como dirección.
 
@@ -286,10 +314,11 @@ No hace falta crear estas tablas hasta que tengamos claro el primer contenido re
 2. Crear una lista inicial de 8–15 lugares realmente útiles.
 3. Separar hechos permanentes de reglas que puedan cambiar.
 4. Verificar especialmente cualquier afirmación de acceso con perro.
-5. Redactar una guía breve pero útil.
-6. Añadir enlaces internos a destinos cercanos.
-7. Revisar manualmente antes de marcar `published`.
-8. Anotar fecha de revisión de datos sensibles.
+5. Buscar información que resuelva problemas reales del viaje: cierres, temporadas, peligros, sombra, terreno, ganado, aparcamiento o restricciones.
+6. Redactar una guía breve pero útil.
+7. Añadir enlaces internos a destinos cercanos.
+8. Revisar manualmente antes de marcar `published`.
+9. Anotar fecha de revisión de datos sensibles.
 
 ---
 
@@ -303,6 +332,7 @@ Una guía puede publicarse cuando tenga como mínimo:
 - [ ] información costera/playas cuando aplique;
 - [ ] ninguna afirmación dog-friendly dudosa presentada como hecho;
 - [ ] fuentes para las restricciones relevantes;
+- [ ] avisos temporales destacados cuando existan;
 - [ ] title y meta description propios;
 - [ ] enlaces a 2 o más destinos cercanos cuando existan;
 - [ ] bloque preparado para alojamientos;
@@ -339,6 +369,6 @@ Más adelante se podrán crear landings SEO específicas solo si tienen suficien
 
 ## 10. Siguiente tarea
 
-**Construir Nazaré como primera guía editorial real y usarla como plantilla para el resto.**
+**Construir el hub Algarve con una arquitectura que pueda enlazar posteriormente Lagos, Sagres, Albufeira, Faro, Tavira y el resto de localidades, y que quede preparado para mostrar inventario real cuando llegue Interhome.**
 
-Una vez terminada, revisar estructura, longitud, fuentes y UX antes de replicarla en Cascais y Gerês.
+Después, construir **Lagos con perro** como primera guía local del Algarve y comprobar que el hub regional + guía local + futuro inventario forman un buen embudo SEO y de afiliación.
