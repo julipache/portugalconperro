@@ -8,6 +8,10 @@ const westernGuides = [
   { name: 'Sagres', href: '/destinos/sagres/', text: 'Cabo de São Vicente, acantilados, senderismo y reglas de playa.' },
   { name: 'Aljezur', href: '/destinos/aljezur/', text: 'Arrifana, Odeceixe, Monte Clérigo y etapas de Rota Vicentina.' }
 ];
+const centralGuides = [
+  { name: 'Portimão', href: '/destinos/portimao/', text: 'Praia da Rocha, Alvor y recorridos naturales alrededor de la ría.' },
+  { name: 'Carvoeiro', href: '/destinos/carvoeiro/', text: 'Sete Vales Suspensos, Marinha, Benagil y accesibilidad de calas.' }
+];
 ---
 <BaseLayout
   title="Algarve con perro · Qué zona elegir y dónde alojarse"
@@ -52,6 +56,13 @@ const westernGuides = [
                   {area.name === 'Algarve occidental' && (
                     <div class="meta" style="margin-top:20px">
                       {westernGuides.map((guide) => (
+                        <a class="nav-cta" href={guide.href}>Guía de {guide.name} →</a>
+                      ))}
+                    </div>
+                  )}
+                  {area.name === 'Algarve central' && (
+                    <div class="meta" style="margin-top:20px">
+                      {centralGuides.map((guide) => (
                         <a class="nav-cta" href={guide.href}>Guía de {guide.name} →</a>
                       ))}
                     </div>
@@ -104,9 +115,22 @@ const westernGuides = [
 
         <div class="side-card" style="margin-top:20px;background:white;border:1px solid var(--line)">
           <span class="eyebrow">Guías verificadas del oeste</span>
-          <h3 style="margin-top:8px">Ya puedes comparar tres bases</h3>
+          <h3 style="margin-top:8px">Tres bases para comparar</h3>
           <div style="display:grid;gap:14px;margin-top:14px">
             {westernGuides.map((guide) => (
+              <div>
+                <a class="card-link" href={guide.href}>{guide.name} con perro →</a>
+                <p style="color:var(--muted);font-size:.9rem;margin-top:3px">{guide.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="side-card" style="margin-top:20px;background:white;border:1px solid var(--line)">
+          <span class="eyebrow">Guías verificadas del centro</span>
+          <h3 style="margin-top:8px">Dos bases muy diferentes</h3>
+          <div style="display:grid;gap:14px;margin-top:14px">
+            {centralGuides.map((guide) => (
               <div>
                 <a class="card-link" href={guide.href}>{guide.name} con perro →</a>
                 <p style="color:var(--muted);font-size:.9rem;margin-top:3px">{guide.text}</p>
