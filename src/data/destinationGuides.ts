@@ -1,8 +1,10 @@
+import { geresGuide } from './geresGuide';
+
 export type DogAccessStatus = 'allowed' | 'restricted' | 'not_allowed' | 'unknown';
 
 export interface GuidePlace {
   name: string;
-  category: 'viewpoint' | 'park' | 'beach' | 'walk' | 'attraction' | 'historic';
+  category: 'viewpoint' | 'park' | 'beach' | 'walk' | 'attraction' | 'historic' | 'natural_area' | 'waterfall';
   summary: string;
   dogAccess: DogAccessStatus;
   dogAccessNotes: string;
@@ -17,21 +19,39 @@ export interface GuideWalk {
   sourceUrl: string;
 }
 
+export interface GuideRule {
+  eyebrow: string;
+  title: string;
+  summary: string;
+  sourceLabel: string;
+  sourceUrl: string;
+}
+
+export interface GuideAlert {
+  title: string;
+  summary: string;
+  sourceLabel: string;
+  sourceUrl: string;
+}
+
 export interface DestinationGuide {
   slug: string;
   intro: string;
   reviewedAt: string;
   places: GuidePlace[];
   walks: GuideWalk[];
-  beachRule: {
+  beachRule?: {
     summary: string;
     sourceLabel: string;
     sourceUrl: string;
   };
+  practicalRule?: GuideRule;
+  alerts?: GuideAlert[];
   sources: { label: string; url: string }[];
 }
 
 export const destinationGuides: Record<string, DestinationGuide> = {
+  geres: geresGuide,
   nazare: {
     slug: 'nazare',
     intro:
