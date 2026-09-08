@@ -8,32 +8,25 @@ import { destinations } from '../data/destinations';
       <div class="hero-copy">
         <span class="eyebrow">Portugal, pero pensado para ellos</span>
         <h1>Viajar con perro sin jugar a las adivinanzas.</h1>
-        <p>Encuentra alojamientos y destinos con información que podamos respaldar: <strong>mascotas permitidas</strong>, vallado, tipo de alojamiento, piscina y lugares que merece la pena conocer cerca.</p>
+        <p>Primero te ayudamos a elegir destino con información que podamos respaldar: <strong>playas, rutas, acceso con perro, transporte y restricciones</strong>. Después conectaremos esa decisión con alojamientos reales.</p>
         <div class="hero-badges">
-          <span class="badge">🔒 Vallado confirmado</span>
-          <span class="badge">🐕 Mascotas permitidas</span>
-          <span class="badge">🏡 Casas y villas</span>
-          <span class="badge">🏖️ Lugares y rutas</span>
+          <span class="badge">🔎 Datos con fuente</span>
+          <span class="badge">🐕 Reglas para perros</span>
+          <span class="badge">🏖️ Playas y rutas</span>
+          <span class="badge">🏡 Alojamiento después</span>
         </div>
-        <form class="search-box" action="/alojamientos/" method="get">
-          <div class="field">
-            <label for="destino">Destino</label>
-            <input id="destino" name="destino" placeholder="Algarve, Lagos, Sintra, Gerês…" />
+        <div class="search-box" style="align-items:end">
+          <div class="field" style="grid-column:span 2">
+            <label>¿Por dónde empiezo?</label>
+            <span style="color:var(--muted);font-size:.95rem">Explora las guías verificadas o consulta cómo construiremos la búsqueda de alojamiento sin inventar filtros.</span>
           </div>
-          <div class="field">
-            <label for="perros">Perros</label>
-            <select id="perros" name="perros"><option value="1">1 perro</option><option value="2">2 perros</option><option value="3">3 o más</option></select>
-          </div>
-          <div class="field">
-            <label for="jardin">Exterior</label>
-            <select id="jardin" name="jardin"><option value="">Cualquiera</option><option value="vallado">Vallado</option><option value="privado">Exterior privado</option></select>
-          </div>
-          <button class="search-button" type="submit">Buscar</button>
-        </form>
+          <a class="search-button" href="#destinos" style="text-align:center;text-decoration:none">Ver destinos</a>
+          <a class="search-button" href="/alojamientos/" style="text-align:center;text-decoration:none">Alojamientos</a>
+        </div>
       </div>
       <div class="hero-art" aria-label="Ilustración de viaje con perro">
         <div class="art-card one"><b>🔎 Datos con fuente</b><span>Si no podemos respaldar una característica, no la presentamos como un hecho.</span></div>
-        <div class="art-card two"><b>🔒 Vallado significa vallado</b><span>La V1 usará los atributos declarados por el proveedor, sin deducirlos de fotografías.</span></div>
+        <div class="art-card two"><b>🔒 Vallado significa vallado</b><span>Ese filtro solo se activará cuando un proveedor nos entregue el dato de forma suficientemente fiable.</span></div>
       </div>
     </div>
   </section>
@@ -63,8 +56,8 @@ import { destinations } from '../data/destinations';
   <section class="section" id="como-funciona">
     <div class="container trust">
       <div class="trust-item"><span>🔎</span><h3>Dato con fuente</h3><p>No marcaremos un alojamiento o lugar como compatible con perros solo porque una foto o una reseña antigua lo sugiera.</p></div>
-      <div class="trust-item"><span>✅</span><h3>Sin adivinar</h3><p>En la V1 publicaremos atributos del proveedor y reglas verificadas en fuentes oficiales. Lo que no sepamos quedará como “por confirmar”.</p></div>
-      <div class="trust-item"><span>🐾</span><h3>Filtros realmente útiles</h3><p>Mascotas permitidas, vallado, tipo de alojamiento, piscina, distancia al agua y otros atributos que entregue la integración.</p></div>
+      <div class="trust-item"><span>✅</span><h3>Sin adivinar</h3><p>Publicamos reglas verificadas y distinguimos claramente lo confirmado de lo que todavía está por comprobar.</p></div>
+      <div class="trust-item"><span>🐾</span><h3>Filtros cuando sean reales</h3><p>Número de perros, vallado, tamaño, piscina o suplemento solo aparecerán como filtros activos cuando dispongamos de datos que realmente los soporten.</p></div>
     </div>
   </section>
 </BaseLayout>
