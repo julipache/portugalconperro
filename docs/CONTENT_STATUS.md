@@ -2,11 +2,12 @@
 
 > Resumen corto y actualizado del trabajo de contenido. El plan detallado sigue en `CONTENT_PLAN.md`.
 
-Última actualización: **2026-09-07**
+Última actualización: **2026-09-08**
 
 ## Publicado / listo en rama V1
 
 - ✅ **Nazaré** — costa, miradores, paseos y reglas de playa con fuentes oficiales.
+- ✅ **Peniche** — Cabo Carvoeiro, Baleal, temporada balnear 2026, Rota Natura do Oeste y Berlengas con atención especial a barco + reserva natural.
 - ✅ **Cascais** — parques, costa, temporada balnear y Quinta do Pisão con reglas caninas verificadas.
 - ✅ **Gerês** — parque nacional, rutas oficiales, riesgo de incendio, cierres, ganado y perros pastores.
 - ✅ **Algarve** — hub regional para elegir oeste / centro / este antes de buscar alojamiento.
@@ -15,13 +16,12 @@
 - ✅ **Aljezur** — castillo, Arrifana, Monte Clérigo, Amoreira, Odeceixe y rutas de Rota Vicentina con reglas y distancias verificadas.
 - ✅ **Portimão** — Praia da Rocha, Alvor, Ria de Alvor, temporada balnear y red municipal de recorridos naturales.
 - ✅ **Carvoeiro / Lagoa** — Sete Vales Suspensos, Marinha, Benagil, Vale Centeanes y datos prácticos de escaleras, acantilados y playas de uso limitado.
+- ✅ **Tavira** — Ria Formosa, Barril con acceso peatonal, playas dependientes de barco y temporada balnear 2026.
 - ✅ **Sintra** — Castelo dos Mouros y Monserrate con acceso canino confirmado y reglas detalladas; Pena y otros monumentos diferenciados como no aptos para mascotas según Parques de Sintra.
 
 ## Cluster Algarve occidental
 
 Estado: **primera versión editorial completada**.
-
-Ya hay tres bases locales verificadas y conectadas desde el hub regional:
 
 1. **Lagos** — costa, rutas y alternativa forestal.
 2. **Sagres** — senderismo, acantilados y Cabo de São Vicente.
@@ -36,12 +36,38 @@ Estado: **primera versión editorial iniciada con dos bases complementarias**.
 1. **Portimão** — ciudad, Praia da Rocha, Alvor y recorridos naturales de la ría.
 2. **Carvoeiro / Lagoa** — calas, acantilados, Sete Vales Suspensos y accesibilidad física de playas.
 
-Pendientes de este cluster:
+Pendientes:
 
 - ⬜ **Albufeira**
 - ⬜ **Vilamoura / Quarteira**
 
-Antes de abrir esas páginas comprobaremos si aportan información canina y práctica distinta y, cuando llegue Interhome, si tienen inventario suficiente para justificar una landing propia.
+Solo abriremos esas páginas si aportan información práctica distinta y/o inventario suficiente.
+
+## Cluster Algarve oriental
+
+Estado: **iniciado**.
+
+1. **Tavira** — primera guía completa de Ria Formosa.
+
+Hallazgo editorial importante: en el este no basta con preguntar “¿puede ir el perro a la playa?”. En varias islas hay que comprobar antes **si el transporte en barco acepta al perro**. Barril destaca porque puede alcanzarse caminando desde Pedras d’El Rei.
+
+Pendientes:
+
+- ⬜ **Faro / Olhão** — decidir si merece una guía por ciudad o un subcluster Ria Formosa.
+- ⬜ **Vila Real de Santo António** — valorar como base propia según contenido e inventario.
+
+## Costa Centro
+
+Estado: **cluster en expansión**.
+
+1. **Nazaré** — guía verificada.
+2. **Peniche** — guía verificada y conectable después con Baleal/Berlengas.
+
+Siguientes candidatos:
+
+- ⬜ **São Martinho do Porto**
+- ⬜ **Óbidos**
+- ⬜ **Figueira da Foz**
 
 ## Qué estamos aprendiendo
 
@@ -55,6 +81,7 @@ El contenido que más valor aporta no es una lista de “sitios bonitos”, sino
 - riesgo de incendio o cierres temporales;
 - ganado y perros pastores;
 - escaleras, acantilados y accesibilidad física real;
+- si una visita depende de barco y si hay que confirmar mascotas;
 - acceso en coche / transporte;
 - diferencias entre zonas antes de reservar alojamiento.
 
@@ -69,13 +96,21 @@ El contenido que más valor aporta no es una lista de “sitios bonitos”, sino
 
 Los datos temporales deben incluir fecha de revisión y enlace a la fuente para comprobar el estado actual.
 
-## Objetivo comercial
+## Monetización V1
 
-El contenido editorial debe resolver la elección de destino y conducir de forma natural al inventario de alojamiento:
+La V1 no se bloquea por no tener todavía un buscador/API de alojamiento potente.
 
-`búsqueda Google → guía útil → elección de zona → filtros de alojamiento → partner → reserva`
+Embudo provisional:
 
-No crearemos páginas SEO vacías ni texto de relleno. Cuando llegue Interhome, priorizaremos landings donde exista inventario real suficiente para consultas con intención alta, especialmente:
+`búsqueda Google → guía útil → destino elegido → enlace afiliado de alojamiento → reserva`
+
+Embudo objetivo cuando tengamos datos suficientes:
+
+`búsqueda Google → guía útil → destino elegido → filtros propios (mascotas/vallado/casa/piscina/...) → partner → reserva`
+
+La prioridad inmediata es poder usar afiliación de alojamiento —por ejemplo Booking vía CJ si la cuenta/campaña se aprueba— sin prometer filtros que el partner no pueda respaldar. Interhome u otros feeds quedan como mejora posterior si aportan atributos estructurados realmente útiles.
+
+No crearemos páginas SEO vacías ni texto de relleno. Cuando tengamos feed/API, priorizaremos landings donde exista inventario real suficiente para consultas con intención alta, especialmente:
 
 - mascotas + vallado;
 - casa/villa + perro;
@@ -85,12 +120,12 @@ No crearemos páginas SEO vacías ni texto de relleno. Cuando llegue Interhome, 
 
 ## Siguiente bloque de contenido
 
-1. **Tavira** — primera guía del Algarve oriental y primer caso fuerte de Ria Formosa/islas.
-2. **Faro / Olhão** — decidir si conviene una guía por ciudad o un subcluster de Ria Formosa.
+1. **São Martinho do Porto / Óbidos** — reforzar Costa Centro alrededor de Nazaré y Peniche.
+2. **Faro / Olhão** — completar mejor Ria Formosa si encontramos información diferenciadora.
 3. **Comporta / Setúbal** — abrir el siguiente cluster con alta intención de escapada y casas.
-4. Volver a **Costa Centro y Costa Norte** para ampliar cobertura sin concentrar toda la web en Algarve.
-5. Con inventario de Interhome, decidir qué destinos merecen landings transaccionales específicas.
+4. **Costa Norte** — Viana do Castelo / Caminha / Esposende.
+5. Con datos reales de afiliación, decidir qué destinos merecen landings transaccionales específicas.
 
 ## Criterio de éxito editorial
 
-Una guía debe ser lo bastante útil como para que alguien que viaja con perro la guarde o la consulte durante el viaje. El objetivo no es publicar muchas URLs: es construir confianza suficiente para que, cuando aparezcan los alojamientos, el usuario quiera reservar desde la misma web.
+Una guía debe ser lo bastante útil como para que alguien que viaja con perro la guarde o la consulte durante el viaje. El objetivo no es publicar muchas URLs: es construir confianza suficiente para que, cuando aparezca una opción de alojamiento, el usuario quiera reservar desde la misma web.
