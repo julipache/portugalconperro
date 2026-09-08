@@ -10,6 +10,9 @@ const {
   title = 'Portugal con Perro · Guías y alojamientos para viajar con tu perro',
   description = 'Guías para viajar por Portugal con perro: destinos, playas, rutas, normas de acceso y consejos para elegir alojamiento.'
 } = Astro.props;
+
+const canonicalBase = Astro.site ?? new URL('https://portugalconperro.com');
+const canonicalUrl = new URL(Astro.url.pathname, canonicalBase).href;
 ---
 <!doctype html>
 <html lang="es">
@@ -18,9 +21,12 @@ const {
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
     <meta name="theme-color" content="#176b50" />
+    <link rel="canonical" href={canonicalUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="Portugal con Perro" />
     <title>{title}</title>
   </head>
   <body>
