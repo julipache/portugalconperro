@@ -1,0 +1,52 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Portugal con Perro · Guías y alojamientos para viajar con tu perro',
+  description = 'Guías para viajar por Portugal con perro: destinos, playas, rutas, normas de acceso y consejos para elegir alojamiento.'
+} = Astro.props;
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#176b50" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav">
+        <a class="brand" href="/" aria-label="Portugal con Perro, inicio">
+          <span class="brand-mark">🐾</span>
+          <span>Portugal con Perro</span>
+        </a>
+        <nav class="nav-links" aria-label="Principal">
+          <a href="/alojamientos/">Alojamientos</a>
+          <a href="/#destinos">Destinos</a>
+          <a href="/#como-funciona">Cómo verificamos</a>
+          <a class="nav-cta" href="/alojamientos/">Dónde dormir</a>
+        </nav>
+      </div>
+    </header>
+    <main><slot /></main>
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <div class="brand"><span class="brand-mark">🐾</span><span>Portugal con Perro</span></div>
+          <p>Guías prácticas para recorrer Portugal con tu perro y comprobar las condiciones importantes antes de salir o reservar.</p>
+        </div>
+        <p>Revisamos la información con fuentes oficiales siempre que es posible. Las normas pueden cambiar: por eso indicamos la fuente y la fecha de revisión.</p>
+      </div>
+    </footer>
+  </body>
+</html>

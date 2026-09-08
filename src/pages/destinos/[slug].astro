@@ -1,0 +1,193 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { destinations, type Destination } from '../../data/destinations';
+import { destinationGuides } from '../../data/destinationGuides';
+import { aljezurGuide } from '../../data/aljezurGuide';
+import { carvoeiroGuide } from '../../data/carvoeiroGuide';
+import { lagosGuide } from '../../data/lagosGuide';
+import { penicheGuide } from '../../data/penicheGuide';
+import { portimaoGuide } from '../../data/portimaoGuide';
+import { sagresGuide } from '../../data/sagresGuide';
+import { sintraGuide } from '../../data/sintraGuide';
+import { taviraGuide } from '../../data/taviraGuide';
+
+export function getStaticPaths() {
+  return destinations
+    .filter((destination) => destination.destinationType !== 'region')
+    .map((destination) => ({ params: { slug: destination.slug }, props: { destination } }));
+}
+
+interface Props { destination: Destination }
+const { destination } = Astro.props;
+const specialGuides = {
+  aljezur: aljezurGuide,
+  carvoeiro: carvoeiroGuide,
+  lagos: lagosGuide,
+  peniche: penicheGuide,
+  portimao: portimaoGuide,
+  sagres: sagresGuide,
+  sintra: sintraGuide,
+  tavira: taviraGuide
+};
+const guide = specialGuides[destination.slug as keyof typeof specialGuides] ?? destinationGuides[destination.slug];
+
+const accessLabels = {
+  allowed: '✅ Acceso con perro confirmado',
+  restricted: '⚠️ Acceso con condiciones',
+  not_allowed: '⛔ Perros no permitidos',
+  unknown: '❔ Acceso con perro por confirmar'
+};
+
+const categoryLabels = {
+  viewpoint: 'mirador',
+  park: 'parque',
+  beach: 'playa',
+  walk: 'paseo',
+  attraction: 'lugar de interés',
+  historic: 'patrimonio',
+  natural_area: 'espacio natural',
+  waterfall: 'cascada'
+};
+---
+<BaseLayout title={`${destination.name} con perro · Portugal con Perro`} description={`Guía para preparar un viaje a ${destination.name} con perro: lugares de interés, paseos, rutas y restricciones verificadas cuando existe una fuente oficial.`}>
+  <section class="destination-hero">
+    <div class="container">
+      <span class="eyebrow">{destination.region} · Guía con perro</span>
+      <h1 style="font-size:clamp(3rem,7vw,6rem)">{destination.name} con perro</h1>
+      <p style="max-width:760px;color:var(--muted);font-size:1.12rem;margin-top:20px">{destination.summary}</p>
+      <div class="score">
+        <span>{guide ? '✅ Guía investigada con fuentes oficiales' : '🧭 Guía en investigación'}</span>
+        {guide && <strong style="font-size:.95rem">Revisada {guide.reviewedAt}</strong>}
+      </div>
+    </div>
+  </section>
+
+  {guide ? (
+    <>
+      <section class="section">
+        <div class="container content-grid">
+          <div>
+            <span class="eyebrow">Guía editorial verificada</span>
+            <h2>Qué hacer y qué sabemos de verdad</h2>
+            <p style="color:var(--muted);margin-top:18px;font-size:1.05rem">{guide.intro}</p>
+
+            {guide.alerts && guide.alerts.length > 0 && (
+              <div style="margin-top:42px">
+                <span class="eyebrow">Información que puede cambiar tu plan</span>
+                <h2 style="font-size:clamp(1.8rem,3.2vw,2.7rem);margin-top:6px">Antes de salir</h2>
+                <div class="card-grid" style="margin-top:24px;grid-template-columns:repeat(2,minmax(0,1fr))">
+                  {guide.alerts.map((alert) => (
+                    <article class="card" style="border-color:#dfbd68;background:#fffdf5">
+                      <div class="card-body">
+                        <h3>{alert.title}</h3>
+                        <p>{alert.summary}</p>
+                        <a class="card-link" style="display:inline-block;margin-top:14px" href={alert.sourceUrl} target="_blank" rel="noopener">Comprobar estado: {alert.sourceLabel} ↗</a>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            <div style="margin-top:42px">
+              <span class="eyebrow">Lugares de interés</span>
+              <h2 style="font-size:clamp(1.8rem,3.2vw,2.7rem);margin-top:6px">Qué merece la pena conocer</h2>
+              <div class="card-grid" style="margin-top:24px;grid-template-columns:repeat(2,minmax(0,1fr))">
+                {guide.places.map((place) => (
+                  <article class="card">
+                    <div class="card-body">
+                      <div class="meta" style="margin-top:0">
+                        <span class="pill">{categoryLabels[place.category]}</span>
+                        <span class="pill">{accessLabels[place.dogAccess]}</span>
+                      </div>
+                      <h3>{place.name}</h3>
+                      <p>{place.summary}</p>
+                      <p style="margin-top:12px"><strong>Con perro:</strong> {place.dogAccessNotes}</p>
+                      <a class="card-link" style="display:inline-block;margin-top:14px" href={place.sourceUrl} target="_blank" rel="noopener">Fuente: {place.sourceLabel} ↗</a>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+
+            <div style="margin-top:48px">
+              <span class="eyebrow">Paseos y rutas</span>
+              <h2 style="font-size:clamp(1.8rem,3.2vw,2.7rem);margin-top:6px">Formas de recorrer {destination.name}</h2>
+              <div class="card-grid" style="margin-top:24px;grid-template-columns:repeat(2,minmax(0,1fr))">
+                {guide.walks.map((walk) => (
+                  <article class="card">
+                    <div class="card-body">
+                      <h3>🚶 {walk.name}</h3>
+                      <p>{walk.summary}</p>
+                      <a class="card-link" style="display:inline-block;margin-top:14px" href={walk.sourceUrl} target="_blank" rel="noopener">Fuente: {walk.sourceLabel} ↗</a>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <aside>
+            {guide.practicalRule && (
+              <div class="side-card">
+                <span class="eyebrow">{guide.practicalRule.eyebrow}</span>
+                <h3 style="margin-top:8px">{guide.practicalRule.title}</h3>
+                <p style="color:var(--muted);margin-top:12px">{guide.practicalRule.summary}</p>
+                <a class="card-link" style="display:inline-block;margin-top:14px" href={guide.practicalRule.sourceUrl} target="_blank" rel="noopener">{guide.practicalRule.sourceLabel} ↗</a>
+              </div>
+            )}
+
+            {guide.beachRule && (
+              <div class="side-card" style={guide.practicalRule ? 'margin-top:20px' : ''}>
+                <span class="eyebrow">Playas y perros</span>
+                <h3 style="margin-top:8px">No damos por hecho el acceso</h3>
+                <p style="color:var(--muted);margin-top:12px">{guide.beachRule.summary}</p>
+                <a class="card-link" style="display:inline-block;margin-top:14px" href={guide.beachRule.sourceUrl} target="_blank" rel="noopener">{guide.beachRule.sourceLabel} ↗</a>
+              </div>
+            )}
+
+            <div class="side-card" style="margin-top:20px;background:white;border:1px solid var(--line)">
+              <span class="eyebrow">Fuentes</span>
+              <h3 style="margin-top:8px">Consultadas</h3>
+              <ul>
+                {guide.sources.map((source) => (
+                  <li style="margin-bottom:8px"><a class="card-link" href={source.url} target="_blank" rel="noopener">{source.label} ↗</a></li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="side-card" style="margin-top:20px">
+              <span class="eyebrow">Alojamientos</span>
+              <h3 style="margin-top:8px">La reserva es el siguiente paso</h3>
+              <p style="color:var(--muted);margin-top:12px">Mientras no tengamos un feed/API capaz de respaldar filtros avanzados, no mostraremos resultados ficticios. Empezaremos con afiliación a inventario real y conservaremos {destination.name} como contexto de búsqueda.</p>
+              <a class="nav-cta" style="display:inline-block;margin-top:18px" href={`/alojamientos/?destino=${destination.slug}`}>Cómo buscar alojamiento →</a>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </>
+  ) : (
+    <section class="section">
+      <div class="container content-grid">
+        <div>
+          <span class="eyebrow">Contenido en preparación</span>
+          <h2>Esta guía todavía no está investigada</h2>
+          <p style="color:var(--muted);margin-top:18px">Estamos construyendo cada destino con fuentes oficiales. Hasta terminar la investigación no publicaremos como hechos condiciones de acceso con perro, restricciones de playas o compatibilidad de lugares.</p>
+          <div class="card-grid" style="margin-top:28px;grid-template-columns:repeat(2,minmax(0,1fr))">
+            <div class="card"><div class="card-body"><h3>🏡 Dónde dormir</h3><p>Se conectará a inventario real mediante afiliación y, más adelante, a datos estructurados cuando estén disponibles.</p></div></div>
+            <div class="card"><div class="card-body"><h3>🏖️ Costa y playas</h3><p>Revisaremos normativa y señalización antes de afirmar acceso con perro.</p></div></div>
+            <div class="card"><div class="card-body"><h3>🚶 Paseos</h3><p>Seleccionaremos recorridos con fuentes fiables.</p></div></div>
+            <div class="card"><div class="card-body"><h3>📍 Lugares</h3><p>Miradores, parques, espacios exteriores y excursiones cercanas.</p></div></div>
+          </div>
+        </div>
+        <aside class="side-card">
+          <span class="eyebrow">Ideal para investigar</span>
+          <div class="meta">{destination.idealFor.map((item) => <span class="pill">{item}</span>)}</div>
+          <h3 style="margin-top:24px">Puntos a cubrir</h3>
+          <ul>{destination.highlights.map((item) => <li>{item}</li>)}</ul>
+          <a class="nav-cta" style="display:inline-block;margin-top:22px" href={`/alojamientos/?destino=${destination.slug}`}>Cómo buscar alojamiento →</a>
+        </aside>
+      </div>
+    </section>
+  )}
+</BaseLayout>

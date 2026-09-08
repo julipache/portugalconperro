@@ -1,0 +1,103 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { destinations } from '../../data/destinations';
+
+const verifiedDestinations = destinations.filter(
+  (destination) => destination.guideStatus === 'verified' && destination.destinationType !== 'region'
+);
+---
+<BaseLayout
+  title="Alojamientos con perro en Portugal · Portugal con Perro"
+  description="Cómo elegir alojamiento en Portugal viajando con perro: número de perros, suplementos, jardín, vallado y condiciones que conviene confirmar antes de reservar."
+>
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Dónde dormir con tu perro</span>
+          <h1 style="font-size:clamp(2.5rem,5vw,4.5rem)">Alojamientos con perro</h1>
+        </div>
+        <p>“Admite mascotas” no siempre responde a lo que necesitas. Antes de reservar conviene comprobar cuántos perros aceptan, si hay suplemento, qué tamaño admiten y si un jardín es realmente privado y está vallado.</p>
+      </div>
+
+      <div id="selected-destination" class="demo-note" hidden>
+        <strong>Estás mirando alojamiento en <span id="selected-destination-name"></span>.</strong> Revisa primero la guía del destino para conocer playas, rutas, transporte y restricciones que pueden influir en la zona donde te conviene dormir.
+      </div>
+
+      <div class="content-grid" style="margin-top:32px">
+        <div>
+          <span class="eyebrow">Elige primero la zona</span>
+          <h2>Una buena casa no compensa una mala ubicación</h2>
+          <p style="color:var(--muted);margin-top:14px;max-width:760px">Las condiciones del destino cambian mucho la experiencia con perro: temporada balnear, acceso a senderos, barcos, escaleras, acantilados, calor o zonas protegidas. Nuestras guías te ayudan a decidir la base antes de reservar.</p>
+
+          <div class="card-grid" style="margin-top:26px;grid-template-columns:repeat(2,minmax(0,1fr))">
+            {verifiedDestinations.map((destination) => (
+              <a class="card" href={`/destinos/${destination.slug}/`} data-destination={destination.slug}>
+                <div class="card-body">
+                  <div class="meta" style="margin-top:0">
+                    <span class="pill">✅ Guía investigada</span>
+                    <span class="pill">{destination.region}</span>
+                  </div>
+                  <h3>{destination.name}</h3>
+                  <p>{destination.summary}</p>
+                  <span class="card-link" style="display:inline-block;margin-top:14px">Ver guía de {destination.name} →</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <aside>
+          <div class="side-card">
+            <span class="eyebrow">Antes de reservar</span>
+            <h3 style="margin-top:8px">Siete preguntas que merece la pena hacer</h3>
+            <ul style="color:var(--muted);margin-top:14px;display:grid;gap:9px">
+              <li>¿Cuántos perros admite exactamente?</li>
+              <li>¿Hay límite de peso, tamaño o raza?</li>
+              <li>¿Existe suplemento por mascota y cuánto cuesta?</li>
+              <li>¿El jardín o patio es privado?</li>
+              <li>Si está vallado, ¿el cierre rodea toda la zona y tiene huecos?</li>
+              <li>¿Puede el perro quedarse solo en el alojamiento?</li>
+              <li>¿Hay normas específicas para piscina, zonas comunes o mobiliario?</li>
+            </ul>
+            <p style="color:var(--muted);margin-top:14px"><strong>Consejo:</strong> si una condición es importante para tu viaje y la ficha no la aclara, confirma por escrito con el alojamiento antes de pagar.</p>
+          </div>
+
+          <div class="side-card" style="margin-top:20px;background:white;border:1px solid var(--line)">
+            <span class="eyebrow">No significan lo mismo</span>
+            <h3 style="margin-top:8px">Evita estas confusiones</h3>
+            <div style="display:grid;gap:12px;margin-top:14px;color:var(--muted)">
+              <p><strong>“Admite mascotas”</strong> no significa que admita cualquier número, tamaño o raza.</p>
+              <p><strong>“Jardín privado”</strong> no significa que esté completamente vallado.</p>
+              <p><strong>“Piscina privada”</strong> no significa que el perro pueda acceder a esa zona.</p>
+              <p><strong>“Sin suplemento indicado”</strong> no garantiza que la mascota sea gratis.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="container trust">
+      <div class="trust-item"><span>1</span><h3>Elige destino</h3><p>Comprueba primero si la zona encaja con tu perro y con el tipo de viaje que quieres hacer.</p></div>
+      <div class="trust-item"><span>2</span><h3>Lee la letra pequeña</h3><p>No te quedes solo con “mascotas permitidas”: revisa número, suplemento, tamaño y exteriores.</p></div>
+      <div class="trust-item"><span>3</span><h3>Confirma lo importante</h3><p>Si el vallado, el número de perros o cualquier otra condición es decisiva, pide confirmación antes de reservar.</p></div>
+    </div>
+  </section>
+
+  <script is:inline>
+    const params = new URLSearchParams(window.location.search);
+    const destination = params.get('destino');
+    if (destination) {
+      const selectedCard = document.querySelector(`[data-destination="${CSS.escape(destination)}"]`);
+      const note = document.getElementById('selected-destination');
+      const name = document.getElementById('selected-destination-name');
+      if (selectedCard && note && name) {
+        const heading = selectedCard.querySelector('h3');
+        name.textContent = heading?.textContent || destination;
+        note.hidden = false;
+      }
+    }
+  </script>
+</BaseLayout>
