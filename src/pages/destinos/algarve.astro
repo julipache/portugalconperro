@@ -12,6 +12,9 @@ const centralGuides = [
   { name: 'Portimão', href: '/destinos/portimao/', text: 'Praia da Rocha, Alvor y recorridos naturales alrededor de la ría.' },
   { name: 'Carvoeiro', href: '/destinos/carvoeiro/', text: 'Sete Vales Suspensos, Marinha, Benagil y accesibilidad de calas.' }
 ];
+const easternGuides = [
+  { name: 'Tavira', href: '/destinos/tavira/', text: 'Ria Formosa, Barril a pie, playas con barco y temporada balnear 2026.' }
+];
 ---
 <BaseLayout
   title="Algarve con perro · Qué zona elegir y dónde alojarse"
@@ -21,7 +24,7 @@ const centralGuides = [
     <div class="container">
       <span class="eyebrow">Sur de Portugal · Hub regional</span>
       <h1 style="font-size:clamp(3rem,7vw,6rem)">Algarve con perro</h1>
-      <p style="max-width:820px;color:var(--muted);font-size:1.12rem;margin-top:20px">No buscamos decirte simplemente que “el Algarve es dog-friendly”. Queremos ayudarte a elegir <strong>qué parte del Algarve encaja mejor con tu viaje y tu perro</strong>, y después enseñarte alojamientos que cumplan de verdad tus condiciones.</p>
+      <p style="max-width:820px;color:var(--muted);font-size:1.12rem;margin-top:20px">No buscamos decirte simplemente que “el Algarve es dog-friendly”. Queremos ayudarte a elegir <strong>qué parte del Algarve encaja mejor con tu viaje y tu perro</strong>, y después llevarte a alojamientos que encajen con tus condiciones.</p>
       <div class="score">
         <span>✅ Hub regional investigado con fuentes oficiales</span>
         <strong style="font-size:.95rem">Revisado {hub.reviewedAt}</strong>
@@ -67,6 +70,13 @@ const centralGuides = [
                       ))}
                     </div>
                   )}
+                  {area.name === 'Algarve oriental' && (
+                    <div class="meta" style="margin-top:20px">
+                      {easternGuides.map((guide) => (
+                        <a class="nav-cta" href={guide.href}>Guía de {guide.name} →</a>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </article>
             ))}
@@ -108,8 +118,8 @@ const centralGuides = [
       <aside>
         <div class="side-card">
           <span class="eyebrow">Alojamientos</span>
-          <h3 style="margin-top:8px">El siguiente paso será filtrar casas que encajen de verdad</h3>
-          <p style="color:var(--muted);margin-top:12px">Cuando llegue Interhome, este hub no mostrará un carrusel genérico. Permitirá comparar inventario real del Algarve por mascotas, vallado, tipo de casa, piscina y otros atributos que el proveedor confirme.</p>
+          <h3 style="margin-top:8px">Monetizamos ya, sin renunciar al buscador potente</h3>
+          <p style="color:var(--muted);margin-top:12px">Mientras no tengamos un feed/API con atributos caninos suficientemente buenos, usaremos enlaces afiliados de alojamiento para empezar a convertir tráfico. Los filtros avanzados como vallado, número de perros o piscina solo se activarán cuando podamos respaldarlos con datos estructurados.</p>
           <a class="nav-cta" style="display:inline-block;margin-top:18px" href="/alojamientos/?destino=algarve">Buscar alojamientos en Algarve</a>
         </div>
 
@@ -140,6 +150,19 @@ const centralGuides = [
         </div>
 
         <div class="side-card" style="margin-top:20px;background:white;border:1px solid var(--line)">
+          <span class="eyebrow">Guías verificadas del este</span>
+          <h3 style="margin-top:8px">Primera base en Ria Formosa</h3>
+          <div style="display:grid;gap:14px;margin-top:14px">
+            {easternGuides.map((guide) => (
+              <div>
+                <a class="card-link" href={guide.href}>{guide.name} con perro →</a>
+                <p style="color:var(--muted);font-size:.9rem;margin-top:3px">{guide.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="side-card" style="margin-top:20px;background:white;border:1px solid var(--line)">
           <span class="eyebrow">Fuentes</span>
           <h3 style="margin-top:8px">Consultadas</h3>
           <ul>
@@ -156,7 +179,7 @@ const centralGuides = [
     <div class="container trust">
       <div class="trust-item"><span>1</span><h3>Elige zona</h3><p>No tratamos 200 km de costa como si fueran el mismo destino.</p></div>
       <div class="trust-item"><span>2</span><h3>Comprueba reglas</h3><p>Playas, rutas y espacios protegidos se verifican con fuentes y fecha.</p></div>
-      <div class="trust-item"><span>3</span><h3>Filtra la casa</h3><p>El futuro inventario permitirá ir de la guía a una reserva con condiciones útiles para el perro.</p></div>
+      <div class="trust-item"><span>3</span><h3>Reserva</h3><p>Empezamos con afiliación y evolucionaremos a filtros propios cuando tengamos datos suficientemente buenos.</p></div>
     </div>
   </section>
 </BaseLayout>
