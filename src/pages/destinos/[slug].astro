@@ -5,9 +5,11 @@ import { destinationGuides } from '../../data/destinationGuides';
 import { aljezurGuide } from '../../data/aljezurGuide';
 import { carvoeiroGuide } from '../../data/carvoeiroGuide';
 import { lagosGuide } from '../../data/lagosGuide';
+import { penicheGuide } from '../../data/penicheGuide';
 import { portimaoGuide } from '../../data/portimaoGuide';
 import { sagresGuide } from '../../data/sagresGuide';
 import { sintraGuide } from '../../data/sintraGuide';
+import { taviraGuide } from '../../data/taviraGuide';
 
 export function getStaticPaths() {
   return destinations
@@ -17,7 +19,16 @@ export function getStaticPaths() {
 
 interface Props { destination: Destination }
 const { destination } = Astro.props;
-const specialGuides = { aljezur: aljezurGuide, carvoeiro: carvoeiroGuide, lagos: lagosGuide, portimao: portimaoGuide, sagres: sagresGuide, sintra: sintraGuide };
+const specialGuides = {
+  aljezur: aljezurGuide,
+  carvoeiro: carvoeiroGuide,
+  lagos: lagosGuide,
+  peniche: penicheGuide,
+  portimao: portimaoGuide,
+  sagres: sagresGuide,
+  sintra: sintraGuide,
+  tavira: taviraGuide
+};
 const guide = specialGuides[destination.slug as keyof typeof specialGuides] ?? destinationGuides[destination.slug];
 
 const accessLabels = {
@@ -148,8 +159,8 @@ const categoryLabels = {
             <div class="side-card" style="margin-top:20px">
               <span class="eyebrow">Alojamientos</span>
               <h3 style="margin-top:8px">Próximo bloque</h3>
-              <p style="color:var(--muted);margin-top:12px">Cuando tengamos la integración de Interhome, esta guía mostrará alojamientos reales del destino y sus atributos estructurados.</p>
-              <a class="nav-cta" style="display:inline-block;margin-top:18px" href={`/alojamientos/?destino=${destination.slug}`}>Ver buscador</a>
+              <p style="color:var(--muted);margin-top:12px">Mientras la búsqueda avanzada propia no tenga inventario suficiente, esta guía puede monetizarse con enlaces de afiliación a alojamientos que admiten mascotas. Los filtros más específicos seguirán reservados para datos que podamos verificar.</p>
+              <a class="nav-cta" style="display:inline-block;margin-top:18px" href={`/alojamientos/?destino=${destination.slug}`}>Ver alojamientos</a>
             </div>
           </aside>
         </div>
@@ -163,7 +174,7 @@ const categoryLabels = {
           <h2>Esta guía todavía no está investigada</h2>
           <p style="color:var(--muted);margin-top:18px">Estamos construyendo cada destino con fuentes oficiales. Hasta terminar la investigación no publicaremos como hechos condiciones de acceso con perro, restricciones de playas o compatibilidad de lugares.</p>
           <div class="card-grid" style="margin-top:28px;grid-template-columns:repeat(2,minmax(0,1fr))">
-            <div class="card"><div class="card-body"><h3>🏡 Dónde dormir</h3><p>Se conectará al inventario real del proveedor.</p></div></div>
+            <div class="card"><div class="card-body"><h3>🏡 Dónde dormir</h3><p>Se conectará al inventario real del proveedor o a enlaces afiliados verificables.</p></div></div>
             <div class="card"><div class="card-body"><h3>🏖️ Costa y playas</h3><p>Revisaremos normativa y señalización antes de afirmar acceso con perro.</p></div></div>
             <div class="card"><div class="card-body"><h3>🚶 Paseos</h3><p>Seleccionaremos recorridos con fuentes fiables.</p></div></div>
             <div class="card"><div class="card-body"><h3>📍 Lugares</h3><p>Miradores, parques, espacios exteriores y excursiones cercanas.</p></div></div>
@@ -174,7 +185,7 @@ const categoryLabels = {
           <div class="meta">{destination.idealFor.map((item) => <span class="pill">{item}</span>)}</div>
           <h3 style="margin-top:24px">Puntos a cubrir</h3>
           <ul>{destination.highlights.map((item) => <li>{item}</li>)}</ul>
-          <a class="nav-cta" style="display:inline-block;margin-top:22px" href={`/alojamientos/?destino=${destination.slug}`}>Ver buscador</a>
+          <a class="nav-cta" style="display:inline-block;margin-top:22px" href={`/alojamientos/?destino=${destination.slug}`}>Ver alojamientos</a>
         </aside>
       </div>
     </section>
