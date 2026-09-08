@@ -1,0 +1,190 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { destinations } from '../../data/destinations';
+
+const verified = destinations.filter((destination) => destination.guideStatus === 'verified');
+const regionalHubs = verified.filter((destination) => destination.destinationType === 'region');
+const localGuides = verified.filter((destination) => destination.destinationType !== 'region');
+
+const groups = [
+  {
+    title: 'Algarve',
+    description: 'Costa occidental, Algarve central y sotavento: elige la base según el tipo de costa, paseos y desplazamientos que quieras hacer.',
+    slugs: ['lagos', 'sagres', 'aljezur', 'portimao', 'carvoeiro', 'tavira']
+  },
+  {
+    title: 'Centro',
+    description: 'Destinos costeros compactos para combinar paseos, miradores y mar sin depender de grandes desplazamientos.',
+    slugs: ['nazare', 'peniche']
+  },
+  {
+    title: 'Lisboa y alrededores',
+    description: 'Bases muy distintas entre sí: costa urbana en Cascais y patrimonio con normas de acceso concretas en Sintra.',
+    slugs: ['cascais', 'sintra']
+  },
+  {
+    title: 'Norte',
+    description: 'Naturaleza, montaña y rutas para viajes donde el paseo y el entorno pesan más que la playa.',
+    slugs: ['geres']
+  }
+].map((group) => ({
+  ...group,
+  destinations: group.slugs
+    .map((slug) => localGuides.find((destination) => destination.slug === slug))
+    .filter(Boolean)
+}));
+
+const styles = [
+  {
+    title: 'Senderismo y naturaleza',
+    copy: 'Empieza por Gerês, Sagres, Aljezur o Lagos si buscas rutas, paisaje y tiempo al aire libre.',
+    links: ['geres', 'sagres', 'aljezur', 'lagos']
+  },
+  {
+    title: 'Costa y paseos',
+    copy: 'Nazaré, Peniche, Cascais, Lagos y Tavira permiten plantear viajes muy orientados al litoral, aunque las reglas de playa cambian por lugar y temporada.',
+    links: ['nazare', 'peniche', 'cascais', 'lagos', 'tavira']
+  },
+  {
+    title: 'Patrimonio y excursiones',
+    copy: 'Sintra destaca cuando quieres combinar monumentos, naturaleza y reglas de acceso que conviene conocer antes de salir.',
+    links: ['sintra']
+  }
+];
+---
+<BaseLayout
+  title="Destinos de Portugal con perro · Guías prácticas por zonas"
+  description="Elige dónde viajar por Portugal con tu perro con guías verificadas de Algarve, Gerês, Nazaré, Peniche, Cascais, Sintra y más destinos."
+>
+  <section class="destination-hero">
+    <div class="container hero-copy">
+      <span class="eyebrow">Destinos con guía verificada</span>
+      <h1>¿Dónde ir en Portugal con perro?</h1>
+      <p>
+        Empieza por la zona que encaje con tu viaje. En cada guía separamos lo que sabemos de lo que todavía hay que confirmar y enlazamos las fuentes cuando una norma puede cambiar tu plan.
+      </p>
+      <div class="hero-badges">
+        <span class="badge">🐕 Acceso y condiciones</span>
+        <span class="badge">🏖️ Playas y temporada</span>
+        <span class="badge">🥾 Rutas y paseos</span>
+        <span class="badge">🔎 Fuentes revisadas</span>
+      </div>
+    </div>
+  </section>
+
+  {regionalHubs.length > 0 && (
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Empieza por una región</span>
+            <h2>Para viajes con varias bases</h2>
+          </div>
+          <p>Los hubs regionales sirven para decidir primero qué zona te conviene y después bajar a una guía local.</p>
+        </div>
+        <div class="card-grid">
+          {regionalHubs.map((destination) => (
+            <article class="card">
+              <div class="card-media"><span class="pill">🗺️ Guía regional</span></div>
+              <div class="card-body">
+                <h3>{destination.name}</h3>
+                <p>{destination.summary}</p>
+                <div class="meta">
+                  {destination.highlights.map((highlight) => <span class="pill">{highlight}</span>)}
+                </div>
+                <a class="card-link" href={`/destinos/${destination.slug}/`}>Explorar {destination.name} →</a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="section" style="padding-top: 24px;">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Guías locales</span>
+          <h2>Elige destino</h2>
+        </div>
+        <p>Solo mostramos aquí las guías que ya hemos revisado. Las que siguen en investigación no se presentan como terminadas.</p>
+      </div>
+
+      {groups.map((group) => (
+        group.destinations.length > 0 && (
+          <div style="margin-bottom: 48px;">
+            <div style="margin-bottom: 20px; max-width: 760px;">
+              <h3 style="font-size: 1.55rem; margin-bottom: 8px;">{group.title}</h3>
+              <p style="color: var(--muted);">{group.description}</p>
+            </div>
+            <div class="card-grid">
+              {group.destinations.map((destination) => destination && (
+                <article class="card">
+                  <div class="card-media"><span class="pill">✅ Guía revisada</span></div>
+                  <div class="card-body">
+                    <h3>{destination.name}</h3>
+                    <p>{destination.summary}</p>
+                    <div class="meta">
+                      {destination.idealFor.slice(0, 3).map((item) => <span class="pill">{item}</span>)}
+                    </div>
+                    <a class="card-link" href={`/destinos/${destination.slug}/`}>Ver guía de {destination.name} →</a>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        )
+      ))}
+    </div>
+  </section>
+
+  <section class="section" style="background: var(--sand);">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Según tu tipo de viaje</span>
+          <h2>Otra forma de elegir</h2>
+        </div>
+        <p>No todos los viajes con perro necesitan lo mismo. Estas agrupaciones te llevan a las guías que ya tienen información útil para ese tipo de plan.</p>
+      </div>
+      <div class="card-grid">
+        {styles.map((style) => (
+          <article class="side-card">
+            <h3>{style.title}</h3>
+            <p style="margin-top: 10px; color: var(--muted);">{style.copy}</p>
+            <div class="meta" style="margin-bottom: 0;">
+              {style.links.map((slug) => {
+                const destination = localGuides.find((item) => item.slug === slug);
+                return destination ? <a class="pill" href={`/destinos/${slug}/`}>{destination.name} →</a> : null;
+              })}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="trust">
+        <div class="trust-item">
+          <span>🔎</span>
+          <h3>No llamamos “dog friendly” a todo</h3>
+          <p>Si no encontramos una regla fiable sobre el acceso con perro, lo indicamos como pendiente de confirmar.</p>
+        </div>
+        <div class="trust-item">
+          <span>📅</span>
+          <h3>Las normas cambian</h3>
+          <p>Playas, espacios protegidos y monumentos pueden tener reglas estacionales o específicas. Por eso señalamos la fuente y la revisión.</p>
+        </div>
+        <div class="trust-item">
+          <span>🏡</span>
+          <h3>Después, dónde dormir</h3>
+          <p>Cuando ya tengas clara la zona, puedes pasar a alojamientos sin mezclar información turística con filtros que todavía no podamos verificar.</p>
+          <a class="card-link" style="display: inline-block; margin-top: 12px; color: white;" href="/alojamientos/">Buscar alojamiento →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
