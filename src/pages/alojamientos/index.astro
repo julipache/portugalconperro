@@ -1,42 +1,99 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { propertySeeds } from '../../data/properties';
+import { destinations } from '../../data/destinations';
+
+const verifiedDestinations = destinations.filter(
+  (destination) => destination.guideStatus === 'verified' && destination.destinationType !== 'region'
+);
 ---
-<BaseLayout title="Alojamientos que admiten perros en Portugal · Portugal con Perro" description="Busca casas, villas y alojamientos dog friendly en Portugal con filtros pensados para viajar con perro.">
+<BaseLayout
+  title="Alojamientos con perro en Portugal · Portugal con Perro"
+  description="Elige primero el destino y, después, encuentra alojamiento que admita mascotas. Los filtros avanzados solo se activarán cuando podamos respaldarlos con datos fiables."
+>
   <section class="section">
     <div class="container">
       <div class="section-head">
-        <div><span class="eyebrow">Buscador especializado</span><h1 style="font-size:clamp(2.5rem,5vw,4.5rem)">Alojamientos con perro</h1></div>
-        <p>Esta primera pantalla fija la experiencia de búsqueda. Después conectaremos el inventario real y los datos de partners.</p>
-      </div>
-      <div class="demo-note"><strong>Prototipo:</strong> los alojamientos que aparecen debajo son datos de demostración y no se publicarán como fichas reales.</div>
-      <div class="listing-layout">
-        <aside class="filters">
-          <span class="eyebrow">Filtros</span>
-          <div class="filter-group"><b>🐕 Número de perros</b><label><input type="checkbox" /> 1 perro</label><label><input type="checkbox" /> 2 perros</label><label><input type="checkbox" /> 3 o más</label></div>
-          <div class="filter-group"><b>🔒 Jardín</b><label><input type="checkbox" /> Jardín privado</label><label><input type="checkbox" /> Completamente vallado</label><label><input type="checkbox" /> Altura de valla conocida</label></div>
-          <div class="filter-group"><b>🏡 Alojamiento</b><label><input type="checkbox" /> Casa independiente</label><label><input type="checkbox" /> Villa</label><label><input type="checkbox" /> Piscina privada</label></div>
-          <div class="filter-group"><b>🐾 Condiciones</b><label><input type="checkbox" /> Perros grandes</label><label><input type="checkbox" /> Sin suplemento</label><label><input type="checkbox" /> Puede quedarse solo</label></div>
-        </aside>
-        <div class="card-grid" style="grid-template-columns:repeat(2,minmax(0,1fr))">
-          {propertySeeds.map((property) => (
-            <article class="card">
-              <div class="card-media"><span class="pill">DEMO · {property.type}</span></div>
-              <div class="card-body">
-                <h3>{property.name}</h3>
-                <p>{property.location}</p>
-                <div class="meta">
-                  <span class="pill">🐕 {property.dogs}</span>
-                  {property.privateGarden && <span class="pill">🌳 Jardín privado</span>}
-                  {property.fencedGarden && <span class="pill">🔒 Vallado</span>}
-                  {property.pool && <span class="pill">🏊 Piscina</span>}
-                </div>
-                <span class="card-link">La ficha real incluirá fuente y verificación →</span>
-              </div>
-            </article>
-          ))}
+        <div>
+          <span class="eyebrow">Dónde dormir con tu perro</span>
+          <h1 style="font-size:clamp(2.5rem,5vw,4.5rem)">Alojamientos con perro</h1>
         </div>
+        <p>No vamos a fingir un buscador que todavía no puede responder bien a preguntas como “¿está el jardín completamente vallado?” o “¿admite dos perros?”. Primero elegimos destino; después te llevaremos a inventario real de partners.</p>
+      </div>
+
+      <div id="selected-destination" class="demo-note" hidden>
+        <strong>Has llegado desde una guía:</strong> <span id="selected-destination-name"></span>. Cuando activemos los enlaces de reserva, este contexto se conservará para llevarte directamente a alojamientos de esa zona.
+      </div>
+
+      <div class="content-grid" style="margin-top:32px">
+        <div>
+          <span class="eyebrow">Paso 1</span>
+          <h2>Elige una zona que encaje con vuestro viaje</h2>
+          <p style="color:var(--muted);margin-top:14px;max-width:760px">Nuestras guías sirven para decidir dónde alojarse antes de abrir una plataforma de reservas: playas y temporada balnear, rutas, acceso con perro, transporte, escaleras, acantilados y otras condiciones que pueden cambiar mucho la experiencia.</p>
+
+          <div class="card-grid" style="margin-top:26px;grid-template-columns:repeat(2,minmax(0,1fr))">
+            {verifiedDestinations.map((destination) => (
+              <a class="card" href={`/destinos/${destination.slug}/`} data-destination={destination.slug}>
+                <div class="card-body">
+                  <div class="meta" style="margin-top:0">
+                    <span class="pill">✅ Guía investigada</span>
+                    <span class="pill">{destination.region}</span>
+                  </div>
+                  <h3>{destination.name}</h3>
+                  <p>{destination.summary}</p>
+                  <span class="card-link" style="display:inline-block;margin-top:14px">Ver guía antes de reservar →</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <aside>
+          <div class="side-card">
+            <span class="eyebrow">Paso 2 · Reserva</span>
+            <h3 style="margin-top:8px">Primero afiliación; después buscador avanzado</h3>
+            <p style="color:var(--muted);margin-top:12px">La primera monetización será sencilla: desde cada destino enviaremos al usuario a alojamientos que admitan mascotas en un partner de reservas. Cuando dispongamos de un feed/API suficientemente rico, el buscador propio podrá filtrar atributos más específicos.</p>
+            <p style="color:var(--muted);margin-top:12px"><strong>Importante:</strong> hasta tener esos datos, no presentaremos como verificadas condiciones que el partner no nos permita comprobar.</p>
+          </div>
+
+          <div class="side-card" style="margin-top:20px;background:white;border:1px solid var(--line)">
+            <span class="eyebrow">Filtros que queremos</span>
+            <h3 style="margin-top:8px">Solo cuando los datos los soporten</h3>
+            <div class="meta" style="margin-top:14px">
+              <span class="pill">🐕 Nº de perros</span>
+              <span class="pill">🔒 Jardín vallado</span>
+              <span class="pill">🏡 Casa independiente</span>
+              <span class="pill">🏊 Piscina</span>
+              <span class="pill">🐕 Perros grandes</span>
+              <span class="pill">💶 Suplemento</span>
+              <span class="pill">🏠 Puede quedarse solo</span>
+            </div>
+            <p style="color:var(--muted);margin-top:14px;font-size:.92rem">Estos son objetivos del producto, no filtros activos. No deduciremos vallado, tamaño admitido ni otras condiciones a partir de fotos o suposiciones.</p>
+          </div>
+        </aside>
       </div>
     </div>
   </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="container trust">
+      <div class="trust-item"><span>1</span><h3>Decide destino</h3><p>Usa las guías para comprobar si la zona encaja con tu perro y tu forma de viajar.</p></div>
+      <div class="trust-item"><span>2</span><h3>Reserva con contexto</h3><p>Enviaremos a inventario real del destino, sin mostrar fichas ficticias dentro de nuestra web.</p></div>
+      <div class="trust-item"><span>3</span><h3>Mejoraremos los filtros</h3><p>El buscador propio crecerá únicamente cuando dispongamos de datos que permitan hacerlo con precisión.</p></div>
+    </div>
+  </section>
+
+  <script is:inline>
+    const params = new URLSearchParams(window.location.search);
+    const destination = params.get('destino');
+    if (destination) {
+      const selectedCard = document.querySelector(`[data-destination="${CSS.escape(destination)}"]`);
+      const note = document.getElementById('selected-destination');
+      const name = document.getElementById('selected-destination-name');
+      if (selectedCard && note && name) {
+        const heading = selectedCard.querySelector('h3');
+        name.textContent = heading?.textContent || destination;
+        note.hidden = false;
+      }
+    }
+  </script>
 </BaseLayout>
