@@ -19,3 +19,10 @@ jobs:
         run: npm install
       - name: Build
         run: npm run build
+      - name: Verify SEO output
+        run: |
+          test -s dist/sitemap.xml
+          grep -q '<urlset' dist/sitemap.xml
+          grep -q 'https://portugalconperro.com/' dist/sitemap.xml
+          test -s dist/robots.txt
+          grep -q 'Sitemap: https://portugalconperro.com/sitemap.xml' dist/robots.txt
