@@ -24,5 +24,7 @@ jobs:
           test -s dist/sitemap.xml
           grep -q '<urlset' dist/sitemap.xml
           grep -q 'https://portugalconperro.com/' dist/sitemap.xml
+          grep -q 'https://portugalconperro.com/destinos/' dist/sitemap.xml
           test -s dist/robots.txt
           grep -q 'Sitemap: https://portugalconperro.com/sitemap.xml' dist/robots.txt
+          test -s dist/destinos/index.html
