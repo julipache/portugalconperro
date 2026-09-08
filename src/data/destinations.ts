@@ -71,6 +71,16 @@ export const destinations: Destination[] = [
     destinationType: 'local'
   },
   {
+    slug: 'tavira',
+    name: 'Tavira',
+    region: 'Algarve oriental',
+    summary: 'Ria Formosa, islas y playas donde el transporte importa tanto como la arena: Barril se alcanza andando, mientras otras grandes playas dependen de barco.',
+    idealFor: ['Ria Formosa', 'paseos', 'costa tranquila'],
+    highlights: ['Barril a pie', 'Playas con barco', 'Temporada balnear 2026'],
+    guideStatus: 'verified',
+    destinationType: 'local'
+  },
+  {
     slug: 'geres',
     name: 'Gerês',
     region: 'Norte',
@@ -87,6 +97,16 @@ export const destinations: Destination[] = [
     summary: 'Costa, miradores y paseos concentrados en un destino compacto de la región centro.',
     idealFor: ['costa', 'fin de semana', 'paseos'],
     highlights: ['Sítio', 'Miradores', 'Costa'],
+    guideStatus: 'verified',
+    destinationType: 'local'
+  },
+  {
+    slug: 'peniche',
+    name: 'Peniche',
+    region: 'Centro',
+    summary: 'Península, Baleal, Cabo Carvoeiro y Berlengas con reglas de playa 2026 y atención especial a la diferencia entre paseo, arenal y excursión en barco.',
+    idealFor: ['costa', 'paseos', 'surf y paisaje'],
+    highlights: ['Cabo Carvoeiro', 'Baleal', 'Berlengas'],
     guideStatus: 'verified',
     destinationType: 'local'
   },
