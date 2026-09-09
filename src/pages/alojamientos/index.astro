@@ -1,6 +1,11 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { destinations } from '../../data/destinations';
+import {
+  bookingAffiliateDisclosure,
+  bookingSearchForDestination,
+  bookingUrl
+} from '../../data/bookingAffiliate';
 
 const verifiedDestinations = destinations.filter(
   (destination) => destination.guideStatus === 'verified' && destination.destinationType !== 'region'
@@ -8,7 +13,7 @@ const verifiedDestinations = destinations.filter(
 ---
 <BaseLayout
   title="Alojamientos con perro en Portugal · Portugal con Perro"
-  description="Cómo elegir alojamiento en Portugal viajando con perro: número de perros, suplementos, jardín, vallado y condiciones que conviene confirmar antes de reservar."
+  description="Busca alojamiento en Portugal viajando con perro y revisa antes de reservar número de mascotas, suplementos, tamaño admitido, jardín y vallado."
 >
   <section class="section">
     <div class="container">
@@ -17,33 +22,56 @@ const verifiedDestinations = destinations.filter(
           <span class="eyebrow">Dónde dormir con tu perro</span>
           <h1 style="font-size:clamp(2.5rem,5vw,4.5rem)">Alojamientos con perro</h1>
         </div>
-        <p>“Admite mascotas” no siempre responde a lo que necesitas. Antes de reservar conviene comprobar cuántos perros aceptan, si hay suplemento, qué tamaño admiten y si un jardín es realmente privado y está vallado.</p>
+        <p>“Admite mascotas” no siempre responde a lo que necesitas. Busca inventario real en Booking.com y comprueba después las condiciones concretas del alojamiento antes de reservar.</p>
       </div>
 
       <div id="selected-destination" class="demo-note" hidden>
-        <strong>Estás mirando alojamiento en <span id="selected-destination-name"></span>.</strong> Revisa primero la guía del destino para conocer playas, rutas, transporte y restricciones que pueden influir en la zona donde te conviene dormir.
+        <strong>Estás mirando alojamiento en <span id="selected-destination-name"></span>.</strong>
+        Puedes abrir Booking.com para esa zona y, si una condición es importante para tu perro, confirmarla con el alojamiento antes de pagar.
       </div>
 
       <div class="content-grid" style="margin-top:32px">
         <div>
           <span class="eyebrow">Elige primero la zona</span>
-          <h2>Una buena casa no compensa una mala ubicación</h2>
-          <p style="color:var(--muted);margin-top:14px;max-width:760px">Las condiciones del destino cambian mucho la experiencia con perro: temporada balnear, acceso a senderos, barcos, escaleras, acantilados, calor o zonas protegidas. Nuestras guías te ayudan a decidir la base antes de reservar.</p>
+          <h2>Busca alojamiento con el destino ya decidido</h2>
+          <p style="color:var(--muted);margin-top:14px;max-width:760px">Las reglas de playa, rutas, barcos, escaleras o espacios protegidos pueden cambiar mucho la experiencia con perro. Por eso cada búsqueda de alojamiento está conectada a una guía local.</p>
 
           <div class="card-grid" style="margin-top:26px;grid-template-columns:repeat(2,minmax(0,1fr))">
-            {verifiedDestinations.map((destination) => (
-              <a class="card" href={`/destinos/${destination.slug}/`} data-destination={destination.slug}>
-                <div class="card-body">
-                  <div class="meta" style="margin-top:0">
-                    <span class="pill">✅ Guía investigada</span>
-                    <span class="pill">{destination.region}</span>
+            {verifiedDestinations.map((destination) => {
+              const bookingHref = bookingUrl(
+                bookingSearchForDestination(destination.name),
+                `alojamientos-${destination.slug}`
+              );
+
+              return (
+                <article class="card" data-destination={destination.slug}>
+                  <div class="card-body">
+                    <div class="meta" style="margin-top:0">
+                      <span class="pill">✅ Guía investigada</span>
+                      <span class="pill">{destination.region}</span>
+                    </div>
+                    <h3>{destination.name}</h3>
+                    <p>{destination.summary}</p>
+                    <div class="meta" style="margin-bottom:0">
+                      <a class="card-link" href={`/destinos/${destination.slug}/`}>Ver guía →</a>
+                      <a
+                        class="nav-cta"
+                        href={bookingHref}
+                        target="_blank"
+                        rel="sponsored nofollow noopener"
+                        data-booking-affiliate
+                        data-booking-destination={destination.slug}
+                        data-booking-placement="alojamientos"
+                      >Ver alojamientos en Booking.com ↗</a>
+                    </div>
                   </div>
-                  <h3>{destination.name}</h3>
-                  <p>{destination.summary}</p>
-                  <span class="card-link" style="display:inline-block;margin-top:14px">Ver guía de {destination.name} →</span>
-                </div>
-              </a>
-            ))}
+                </article>
+              );
+            })}
+          </div>
+
+          <div class="demo-note" style="margin-top:28px">
+            <strong>Importante:</strong> la búsqueda abre resultados actuales de Booking.com para el destino, pero nosotros no afirmamos que todos acepten perros. Aplica el filtro de mascotas en Booking.com y revisa la política concreta de cada alojamiento.
           </div>
         </div>
 
@@ -60,7 +88,7 @@ const verifiedDestinations = destinations.filter(
               <li>¿Puede el perro quedarse solo en el alojamiento?</li>
               <li>¿Hay normas específicas para piscina, zonas comunes o mobiliario?</li>
             </ul>
-            <p style="color:var(--muted);margin-top:14px"><strong>Consejo:</strong> si una condición es importante para tu viaje y la ficha no la aclara, confirma por escrito con el alojamiento antes de pagar.</p>
+            <p style="color:var(--muted);margin-top:14px"><strong>Consejo:</strong> si una condición es decisiva, pide confirmación por escrito al alojamiento.</p>
           </div>
 
           <div class="side-card" style="margin-top:20px;background:white;border:1px solid var(--line)">
@@ -73,6 +101,8 @@ const verifiedDestinations = destinations.filter(
               <p><strong>“Sin suplemento indicado”</strong> no garantiza que la mascota sea gratis.</p>
             </div>
           </div>
+
+          <p style="color:var(--muted);font-size:.82rem;margin-top:18px;line-height:1.5">{bookingAffiliateDisclosure}</p>
         </aside>
       </div>
     </div>
@@ -81,7 +111,7 @@ const verifiedDestinations = destinations.filter(
   <section class="section" style="padding-top:0">
     <div class="container trust">
       <div class="trust-item"><span>1</span><h3>Elige destino</h3><p>Comprueba primero si la zona encaja con tu perro y con el tipo de viaje que quieres hacer.</p></div>
-      <div class="trust-item"><span>2</span><h3>Lee la letra pequeña</h3><p>No te quedes solo con “mascotas permitidas”: revisa número, suplemento, tamaño y exteriores.</p></div>
+      <div class="trust-item"><span>2</span><h3>Busca inventario real</h3><p>Abre Booking.com para la zona elegida y aplica allí los filtros de mascota y alojamiento que necesites.</p></div>
       <div class="trust-item"><span>3</span><h3>Confirma lo importante</h3><p>Si el vallado, el número de perros o cualquier otra condición es decisiva, pide confirmación antes de reservar.</p></div>
     </div>
   </section>
@@ -97,6 +127,7 @@ const verifiedDestinations = destinations.filter(
         const heading = selectedCard.querySelector('h3');
         name.textContent = heading?.textContent || destination;
         note.hidden = false;
+        selectedCard.scrollIntoView({ block: 'center', behavior: 'smooth' });
       }
     }
   </script>
