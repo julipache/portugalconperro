@@ -28,3 +28,10 @@ jobs:
           test -s dist/robots.txt
           grep -q 'Sitemap: https://portugalconperro.com/sitemap.xml' dist/robots.txt
           test -s dist/destinos/index.html
+      - name: Verify Booking affiliate output
+        run: |
+          test -s dist/alojamientos/index.html
+          grep -q '101879858-11891543' dist/alojamientos/index.html
+          grep -q 'portugalconperro-alojamientos-' dist/alojamientos/index.html
+          grep -q 'rel="sponsored nofollow noopener"' dist/alojamientos/index.html
+          grep -q '101879858-11891543' dist/destinos/lagos/index.html
