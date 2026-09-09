@@ -35,3 +35,9 @@ jobs:
           grep -q 'portugalconperro-alojamientos-' dist/alojamientos/index.html
           grep -q 'rel="sponsored nofollow noopener"' dist/alojamientos/index.html
           grep -q '101879858-11891543' dist/destinos/lagos/index.html
+          grep -q 'portugalconperro-guide-lagos-hero-lagos-portugal' dist/destinos/lagos/index.html
+          grep -q 'portugalconperro-guide-lagos-sidebar-lagos-portugal' dist/destinos/lagos/index.html
+          grep -q 'portugalconperro-guide-lagos-bottom-lagos-portugal' dist/destinos/lagos/index.html
+          grep -q 'data-booking-placement="destination-hero"' dist/destinos/lagos/index.html
+          grep -q 'data-booking-placement="destination-sidebar"' dist/destinos/lagos/index.html
+          grep -q 'data-booking-placement="destination-bottom"' dist/destinos/lagos/index.html
