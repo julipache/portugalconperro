@@ -39,7 +39,7 @@ const canonicalUrl = new URL(Astro.url.pathname, canonicalBase).href;
         <nav class="nav-links" aria-label="Principal">
           <a href="/alojamientos/">Alojamientos</a>
           <a href="/destinos/">Destinos</a>
-          <a href="/#como-funciona">Cómo verificamos</a>
+          <a href="/metodologia/">Cómo verificamos</a>
           <a class="nav-cta" href="/alojamientos/">Dónde dormir</a>
         </nav>
       </div>
@@ -51,7 +51,15 @@ const canonicalUrl = new URL(Astro.url.pathname, canonicalBase).href;
           <div class="brand"><span class="brand-mark">🐾</span><span>Portugal con Perro</span></div>
           <p>Guías prácticas para recorrer Portugal con tu perro y comprobar las condiciones importantes antes de salir o reservar.</p>
         </div>
-        <p>Revisamos la información con fuentes oficiales siempre que es posible. Las normas pueden cambiar: por eso indicamos la fuente y la fecha de revisión.</p>
+        <div>
+          <p>Revisamos la información con fuentes oficiales siempre que es posible. Las normas pueden cambiar: por eso indicamos la fuente y la fecha de revisión.</p>
+          <nav class="footer-links" aria-label="Información del sitio">
+            <a href="/sobre-nosotros/">Sobre el proyecto</a>
+            <a href="/metodologia/">Metodología</a>
+            <a href="/afiliacion/">Afiliación</a>
+            <a href="/privacidad-cookies/">Privacidad y cookies</a>
+          </nav>
+        </div>
       </div>
     </footer>
   </body>

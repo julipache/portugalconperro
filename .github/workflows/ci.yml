@@ -25,9 +25,17 @@ jobs:
           grep -q '<urlset' dist/sitemap.xml
           grep -q 'https://portugalconperro.com/' dist/sitemap.xml
           grep -q 'https://portugalconperro.com/destinos/' dist/sitemap.xml
+          grep -q 'https://portugalconperro.com/sobre-nosotros/' dist/sitemap.xml
+          grep -q 'https://portugalconperro.com/metodologia/' dist/sitemap.xml
+          grep -q 'https://portugalconperro.com/afiliacion/' dist/sitemap.xml
+          grep -q 'https://portugalconperro.com/privacidad-cookies/' dist/sitemap.xml
           test -s dist/robots.txt
           grep -q 'Sitemap: https://portugalconperro.com/sitemap.xml' dist/robots.txt
           test -s dist/destinos/index.html
+          test -s dist/sobre-nosotros/index.html
+          test -s dist/metodologia/index.html
+          test -s dist/afiliacion/index.html
+          test -s dist/privacidad-cookies/index.html
       - name: Verify Booking affiliate output
         run: |
           test -s dist/alojamientos/index.html
