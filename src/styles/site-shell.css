@@ -1,0 +1,22 @@
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  margin-top: 18px;
+  font-size: .86rem;
+  font-weight: 700;
+  color: #d8e4df;
+}
+
+.footer-links a:hover,
+.footer-links a:focus-visible {
+  color: white;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 620px) {
+  .footer-links {
+    gap: 9px 14px;
+  }
+}

@@ -1,0 +1,38 @@
+---
+import { destinations } from '../data/destinations';
+import { destinationLinks } from '../data/destinationLinks';
+
+const parts = Astro.url.pathname.split('/').filter(Boolean);
+const slug = parts[0] === 'destinos' && parts.length === 2 ? parts[1] : '';
+const current = destinations.find((destination) => destination.slug === slug && destination.guideStatus === 'verified');
+const links = current
+  ? (destinationLinks[slug] ?? [])
+      .map((relatedSlug) => destinations.find((destination) => destination.slug === relatedSlug && destination.guideStatus === 'verified'))
+      .filter(Boolean)
+  : [];
+---
+{current && links.length > 0 && (
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Sigue preparando el viaje</span>
+          <h2 style="font-size:clamp(1.8rem,3.2vw,2.7rem)">Otros destinos para combinar con {current.name}</h2>
+        </div>
+        <p>Guías verificadas que encajan bien en la misma ruta o como alternativa de base.</p>
+      </div>
+      <div class="card-grid" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+        {links.map((destination) => destination && (
+          <a class="card" href={`/destinos/${destination.slug}/`}>
+            <div class="card-body">
+              <div class="meta" style="margin-top:0"><span class="pill">{destination.region}</span></div>
+              <h3>{destination.name} con perro</h3>
+              <p>{destination.summary}</p>
+              <span class="card-link" style="display:inline-block;margin-top:14px">Ver guía →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+)}

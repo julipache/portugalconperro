@@ -36,6 +36,10 @@ jobs:
           test -s dist/metodologia/index.html
           test -s dist/afiliacion/index.html
           test -s dist/privacidad-cookies/index.html
+          grep -q 'BreadcrumbList' dist/destinos/lagos/index.html
+          grep -q 'Migas de pan' dist/destinos/lagos/index.html
+          grep -q '/destinos/sagres/' dist/destinos/lagos/index.html
+          grep -q '/destinos/portimao/' dist/destinos/lagos/index.html
       - name: Verify Booking affiliate output
         run: |
           test -s dist/alojamientos/index.html
