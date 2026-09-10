@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Metodología · Cómo verificamos Portugal con Perro"
+  description="Cómo verificamos accesos con perro, restricciones, playas, rutas y datos sensibles antes de publicarlos en Portugal con Perro."
+>
+  <section class="destination-hero">
+    <div class="container">
+      <span class="eyebrow">Metodología</span>
+      <h1>Qué publicamos como hecho y qué dejamos como desconocido</h1>
+      <p style="max-width:840px;color:var(--muted);font-size:1.12rem;margin-top:20px">Nuestro criterio principal es sencillo: si una afirmación puede cambiar el plan de alguien que viaja con perro, intentamos respaldarla con una fuente adecuada. Si no hay evidencia suficiente, no completamos el hueco por intuición.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container content-grid">
+      <div>
+        <span class="eyebrow">Estados de acceso</span>
+        <h2>Cuatro estados, incluido “no sabemos”</h2>
+        <div class="card-grid" style="margin-top:28px;grid-template-columns:repeat(2,minmax(0,1fr))">
+          <article class="card"><div class="card-body"><h3>✅ allowed</h3><p>Una fuente suficientemente fiable confirma el acceso con perro en las condiciones descritas.</p></div></article>
+          <article class="card"><div class="card-body"><h3>⚠️ restricted</h3><p>El acceso existe, pero depende de temporada, correa, zona, horario, transporte u otra condición relevante.</p></div></article>
+          <article class="card"><div class="card-body"><h3>⛔ not_allowed</h3><p>Existe una prohibición o exclusión suficientemente clara en la fuente consultada.</p></div></article>
+          <article class="card"><div class="card-body"><h3>❔ unknown</h3><p>No tenemos confirmación suficiente. Este estado es deliberado: preferimos una incógnita visible a una afirmación dudosa.</p></div></article>
+        </div>
+
+        <div style="margin-top:48px">
+          <span class="eyebrow">Jerarquía de fuentes</span>
+          <h2 style="font-size:clamp(1.8rem,3.2vw,2.7rem);margin-top:6px">Qué evidencia pesa más</h2>
+          <div style="display:grid;gap:16px;margin-top:22px">
+            <div class="side-card" style="background:white;border:1px solid var(--line)"><strong>1. Fuente oficial o normativa aplicable.</strong><p style="color:var(--muted);margin-top:6px">Municipios, autoridades, espacios naturales, operadores oficiales y organismos de turismo cuando publican una regla concreta.</p></div>
+            <div class="side-card" style="background:white;border:1px solid var(--line)"><strong>2. Información directa del establecimiento u operador.</strong><p style="color:var(--muted);margin-top:6px">Útil para políticas propias, siempre que la condición esté expresada de forma clara.</p></div>
+            <div class="side-card" style="background:white;border:1px solid var(--line)"><strong>3. Evidencia secundaria, solo como pista.</strong><p style="color:var(--muted);margin-top:6px">Reseñas, blogs, redes o fotos pueden ayudarnos a investigar, pero no bastan por sí solos para afirmar una política sensible.</p></div>
+          </div>
+        </div>
+
+        <div style="margin-top:48px">
+          <span class="eyebrow">Datos que caducan</span>
+          <h2 style="font-size:clamp(1.8rem,3.2vw,2.7rem);margin-top:6px">Una guía verificada no es una garantía eterna</h2>
+          <p style="color:var(--muted);margin-top:16px">Temporadas de baño, cierres, riesgo de incendio, obras, horarios, transporte y políticas de mascotas pueden cambiar. Cuando son relevantes, mostramos la fecha de revisión y el enlace de la fuente para que puedas comprobar el estado actual.</p>
+        </div>
+      </div>
+
+      <aside>
+        <div class="side-card">
+          <span class="eyebrow">Alojamientos</span>
+          <h3 style="margin-top:8px">“Admite mascotas” no responde a todo</h3>
+          <p style="color:var(--muted);margin-top:12px">Un resultado de Booking.com no nos permite afirmar automáticamente número de perros, límite de peso, suplemento, si el jardín está vallado o si el perro puede quedarse solo. Esas condiciones deben comprobarse en la ficha vigente o con el alojamiento.</p>
+          <a class="nav-cta" style="display:inline-block;margin-top:18px" href="/alojamientos/">Qué comprobar antes de reservar →</a>
+        </div>
+
+        <div class="side-card" style="margin-top:20px;background:white;border:1px solid var(--line)">
+          <span class="eyebrow">Correcciones</span>
+          <h3 style="margin-top:8px">La fuente manda sobre nuestra redacción</h3>
+          <p style="color:var(--muted);margin-top:12px">Si detectamos que una fuente ha cambiado o que una frase de la guía era demasiado amplia, la corregimos y actualizamos la fecha de revisión cuando corresponda.</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>
