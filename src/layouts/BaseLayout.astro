@@ -1,5 +1,8 @@
 ---
 import '../styles/global.css';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import RelatedDestinations from '../components/RelatedDestinations.astro';
+import { destinations } from '../data/destinations';
 
 interface Props {
   title?: string;
@@ -13,6 +16,18 @@ const {
 
 const canonicalBase = Astro.site ?? new URL('https://portugalconperro.com');
 const canonicalUrl = new URL(Astro.url.pathname, canonicalBase).href;
+const pathParts = Astro.url.pathname.split('/').filter(Boolean);
+const isDestinationsRoute = pathParts[0] === 'destinos';
+const destinationSlug = isDestinationsRoute && pathParts.length === 2 ? pathParts[1] : '';
+const breadcrumbDestination = destinations.find((destination) => destination.slug === destinationSlug);
+const breadcrumbItems = isDestinationsRoute
+  ? [
+      { label: 'Inicio', href: '/' },
+      ...(destinationSlug
+        ? [{ label: 'Destinos', href: '/destinos/' }, { label: breadcrumbDestination?.name ?? destinationSlug }]
+        : [{ label: 'Destinos' }])
+    ]
+  : [];
 ---
 <!doctype html>
 <html lang="es">
@@ -44,7 +59,9 @@ const canonicalUrl = new URL(Astro.url.pathname, canonicalBase).href;
         </nav>
       </div>
     </header>
+    {isDestinationsRoute && <Breadcrumbs items={breadcrumbItems} />}
     <main><slot /></main>
+    <RelatedDestinations />
     <footer class="site-footer">
       <div class="container footer-grid">
         <div>
