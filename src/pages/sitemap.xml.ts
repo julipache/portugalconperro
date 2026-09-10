@@ -3,7 +3,15 @@ import { destinations } from '../data/destinations';
 
 export const prerender = true;
 
-const staticPaths = ['/', '/destinos/', '/alojamientos/'];
+const staticPaths = [
+  '/',
+  '/destinos/',
+  '/alojamientos/',
+  '/sobre-nosotros/',
+  '/metodologia/',
+  '/afiliacion/',
+  '/privacidad-cookies/'
+];
 
 export const GET: APIRoute = ({ site }) => {
   const baseUrl = site ?? new URL('https://portugalconperro.com');
