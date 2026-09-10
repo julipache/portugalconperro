@@ -101,6 +101,26 @@ export const destinations: Destination[] = [
     destinationType: 'local'
   },
   {
+    slug: 'sao-martinho-do-porto',
+    name: 'São Martinho do Porto',
+    region: 'Centro',
+    summary: 'Bahía compacta, paseo marginal y miradores: una base tranquila para Costa Centro donde conviene separar claramente el paseo urbano del acceso al arenal en temporada balnear.',
+    idealFor: ['costa tranquila', 'paseos', 'fin de semana'],
+    highlights: ['Bahía y marginal', 'Miradores', 'Temporada balnear 2026'],
+    guideStatus: 'verified',
+    destinationType: 'local'
+  },
+  {
+    slug: 'obidos',
+    name: 'Óbidos',
+    region: 'Centro',
+    summary: 'Villa amurallada, acueducto y una extensa red municipal de senderos con reglas locales de circulación de perros publicadas por el municipio.',
+    idealFor: ['patrimonio', 'senderismo', 'escapada'],
+    highlights: ['Villa medieval', 'Red de percursos', 'Lagoa de Óbidos'],
+    guideStatus: 'verified',
+    destinationType: 'local'
+  },
+  {
     slug: 'peniche',
     name: 'Peniche',
     region: 'Centro',
