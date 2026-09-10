@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Sobre Portugal con Perro · Cómo construimos las guías"
+  description="Qué es Portugal con Perro, qué problema queremos resolver y por qué priorizamos información verificable para viajar por Portugal con perro."
+>
+  <section class="destination-hero">
+    <div class="container">
+      <span class="eyebrow">Sobre el proyecto</span>
+      <h1>Viajar con perro exige más que una lista de sitios bonitos</h1>
+      <p style="max-width:820px;color:var(--muted);font-size:1.12rem;margin-top:20px">Portugal con Perro nace para resolver decisiones concretas: dónde merece la pena alojarse, qué playas o rutas tienen restricciones, qué visitas dependen de barco y qué condiciones conviene confirmar antes de reservar.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container content-grid">
+      <div>
+        <span class="eyebrow">Nuestra idea</span>
+        <h2>Menos “dog-friendly” genérico. Más información que cambie una decisión.</h2>
+        <p style="color:var(--muted);margin-top:18px">No damos por hecho que un lugar admita perros porque aparezca en una reseña, una foto o una lista antigua. Cuando una norma de acceso importa, buscamos una fuente fiable y mostramos el estado con cautela. Si no podemos confirmarlo, preferimos decir que no lo sabemos.</p>
+
+        <div class="card-grid" style="margin-top:30px;grid-template-columns:repeat(2,minmax(0,1fr))">
+          <article class="card"><div class="card-body"><h3>🐾 Para el perro real que viaja contigo</h3><p>Número de perros, tamaño, calor, escaleras, acantilados, transporte, temporada balnear y otras condiciones prácticas importan más que una etiqueta genérica.</p></div></article>
+          <article class="card"><div class="card-body"><h3>🔎 Con fuentes cuando importan</h3><p>Priorizamos fuentes oficiales de turismo, municipios, espacios naturales, operadores y normativa para las afirmaciones que pueden condicionar el viaje.</p></div></article>
+          <article class="card"><div class="card-body"><h3>🏡 Reserva sin inventar inventario</h3><p>Cuando enlazamos a alojamientos, abrimos inventario actual del partner. No copiamos disponibilidad ni afirmamos condiciones de mascotas que el alojamiento no haya confirmado.</p></div></article>
+          <article class="card"><div class="card-body"><h3>📅 Información revisable</h3><p>Las reglas cambian. Por eso las guías sensibles incluyen fecha de revisión y enlaces para comprobar de nuevo la fuente antes de viajar.</p></div></article>
+        </div>
+      </div>
+
+      <aside>
+        <div class="side-card">
+          <span class="eyebrow">Cómo trabajamos</span>
+          <h3 style="margin-top:8px">La metodología es pública</h3>
+          <p style="color:var(--muted);margin-top:12px">Explicamos qué consideramos una confirmación suficiente, cómo usamos los estados de acceso y qué limitaciones tienen nuestras guías.</p>
+          <a class="nav-cta" style="display:inline-block;margin-top:18px" href="/metodologia/">Ver metodología →</a>
+        </div>
+
+        <div class="side-card" style="margin-top:20px;background:white;border:1px solid var(--line)">
+          <span class="eyebrow">Transparencia</span>
+          <h3 style="margin-top:8px">Algunos enlaces son de afiliación</h3>
+          <p style="color:var(--muted);margin-top:12px">Podemos recibir una comisión si reservas a través de determinados enlaces, sin coste adicional para ti. Eso no convierte una condición no verificada en un hecho.</p>
+          <a class="card-link" style="display:inline-block;margin-top:14px" href="/afiliacion/">Cómo funciona la afiliación →</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>
