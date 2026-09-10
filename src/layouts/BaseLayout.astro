@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import '../styles/site-shell.css';
+import Analytics from '@vercel/analytics/astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import RelatedDestinations from '../components/RelatedDestinations.astro';
 import { destinations } from '../data/destinations';
@@ -44,6 +45,7 @@ const breadcrumbItems = isDestinationsRoute
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:site_name" content="Portugal con Perro" />
     <title>{title}</title>
+    <Analytics />
   </head>
   <body>
     <header class="site-header">
