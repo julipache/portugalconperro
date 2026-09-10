@@ -31,10 +31,13 @@ También están publicados:
 - ✅ `/alojamientos/` — landing comercial y guía de comprobaciones antes de reservar.
 - ✅ CTA de Booking en hero, sidebar y final de las guías verificadas.
 - ✅ sitemap, robots y canonical.
+- ✅ breadcrumbs visibles + `BreadcrumbList`.
+- ✅ enlaces contextuales entre destinos relacionados.
+- ✅ páginas de sobre el proyecto, metodología, afiliación y privacidad/cookies.
 
 ## Confianza y transparencia
 
-En la fase actual se están añadiendo páginas públicas para explicar:
+Ya están publicadas páginas específicas para explicar:
 
 - metodología de verificación;
 - qué significa `allowed`, `restricted`, `not_allowed` y `unknown`;
@@ -53,7 +56,7 @@ En la fase actual se están añadiendo páginas públicas para explicar:
 
 Fotos, reseñas antiguas o frases genéricas de “pet friendly” no bastan para confirmar vallado, número de perros, límite de peso, suplementos o posibilidad de dejar al perro solo.
 
-## Monetización
+## Monetización y medición
 
 ### Activo
 
@@ -61,11 +64,12 @@ Fotos, reseñas antiguas o frases genéricas de “pet friendly” no bastan par
 - ✅ Deep links por destino.
 - ✅ `sid` distintos para medir colocaciones.
 - ✅ Aviso de afiliación junto a los CTA.
+- ✅ Vercel Web Analytics para visitas y popularidad de páginas.
 
 ### Siguiente evolución
 
-1. Medición propia de clics además de CJ.
-2. Analizar qué CTA convierte mejor: hero / sidebar / final.
+1. Analizar qué CTA convierte mejor: hero / sidebar / final mediante los `sid` de CJ.
+2. Valorar medición de eventos propia cuando el plan/herramienta lo permita sin añadir complejidad innecesaria.
 3. Crear landings transaccionales específicas solo cuando aporten valor real.
 4. Buscar feeds o proveedores que expongan datos útiles sobre mascotas.
 5. Construir un dataset propio para atributos como:
@@ -81,15 +85,13 @@ Fotos, reseñas antiguas o frases genéricas de “pet friendly” no bastan par
 ## Siguiente bloque editorial
 
 1. **São Martinho do Porto + Óbidos** — cerrar mejor Costa Centro entre Nazaré y Peniche.
-2. Crear sistema de **destinos cercanos** y enlazado contextual.
-3. **Faro / Olhão** — reforzar Ria Formosa si la investigación aporta diferencias útiles.
-4. **Comporta / Setúbal** — siguiente cluster de alta intención de escapada y casas.
-5. **Costa Norte** — Viana do Castelo / Caminha / Esposende.
+2. **Faro / Olhão** — reforzar Ria Formosa si la investigación aporta diferencias útiles.
+3. **Comporta / Setúbal** — siguiente cluster de alta intención de escapada y casas.
+4. **Costa Norte** — Viana do Castelo / Caminha / Esposende.
+5. Con datos reales de tráfico y afiliación, decidir qué destinos merecen landings transaccionales específicas.
 
 ## Pendientes técnicos importantes
 
-- ⬜ Breadcrumbs visuales y `BreadcrumbList`.
-- ⬜ Medición propia de clics afiliados.
 - ⬜ Open Graph social con imagen por defecto.
 - ⬜ `lastmod` en sitemap cuando dispongamos de fechas consistentes por página.
 - ⬜ Protección técnica de `main` en GitHub; el proceso de trabajo ya es siempre rama → PR → CI → merge.
